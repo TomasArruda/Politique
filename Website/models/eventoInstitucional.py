@@ -11,7 +11,7 @@ import binascii
 import os
 
 class EventoInstitucional(models.Model):
-	custo = models.CharField(max_length=500, blank=False, default='', null=False)
+	custo = models.CharField(max_length=100, blank=False, default='', null=False)
 	mostivoPatrocinio = models.CharField(max_length=500, blank=False, default='', null=False)
 
 	empresasParceiras = models.ManyToManyField('EmpresaParceira')

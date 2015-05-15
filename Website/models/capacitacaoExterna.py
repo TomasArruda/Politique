@@ -11,8 +11,8 @@ import binascii
 import os
 
 class CapacitacaoExterna(models.Model):
-	custo = models.CharField(max_length=500, blank=False, default='', null=False)
-	palestrante = models.CharField(max_length=500, blank=False, default='', null=False)
+	custo = models.CharField(max_length=100, blank=False, default='', null=False)
+	palestrante = models.CharField(max_length=100, blank=False, default='', null=False)
 
 	evento = models.ForeignKey('Evento',default='')
 	

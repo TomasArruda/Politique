@@ -12,7 +12,7 @@ import os
 
 class Setor(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
-	Permissao = models.CharField(max_length=500, blank=False, default='', null=False)
+	Permissao = models.CharField(max_length=150, blank=False, default='', null=False)
 
 	class  Meta:
 		ordering = ('nome',)

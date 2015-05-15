@@ -18,7 +18,7 @@ class Financiamento(models.Model):
 	valor = models.CharField(max_length=100, blank=False, default='', null=False)
 	prazos = models.CharField(max_length=100, blank=False, default='', null=False)
 	instituicaoResponsavel = models.CharField(max_length=100, blank=False, default='', null=False)
-	vencedoresAnteriores = models.CharField(max_length=100, blank=False, default='', null=False)
+	vencedoresAnteriores = models.CharField(max_length=500, blank=False, default='', null=False)
 
 	membro = models.ForeignKey('Membro',default='', null=False, blank = False)
 

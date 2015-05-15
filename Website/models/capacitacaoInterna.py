@@ -12,7 +12,7 @@ import os
 
 class CapacitacaoInterna(models.Model):
 	data = models.DateField(auto_now=False, null=False, blank=False)
-	material = models.CharField(max_length=500, blank=False, default='', null=False)
+	material = models.CharField(max_length=200, blank=False, default='', null=False)
 
 	evento = models.ForeignKey('Evento',default='')
 	
