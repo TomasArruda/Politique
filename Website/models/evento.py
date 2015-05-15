@@ -15,9 +15,6 @@ class Evento(models.Model):
 	data = models.DateField(auto_now=False, null=False, blank=False)
 	feedback = models.CharField(max_length=500, blank=False, default='', null=False)
 
-	#capacitacaoInterna = models.ForeignKey('CapacitacaoInterna',default='')
-	#capacitacaoExterna = models.ForeignKey('CapacitacaoExterna',default='')
-	#eventosInstitucionais = models.ForeignKey('EventosInstitucionais',default='')
 	
 	class  Meta:
 		ordering = ('nome',)

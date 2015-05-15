@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 import binascii
 import os
+from django.contrib.auth.hashers import *
 
 class Membro(AbstractBaseUser):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
@@ -22,7 +23,7 @@ class Membro(AbstractBaseUser):
 
 	def save(self, *args, **kwargs):
 		self.password = make_password(self.password)
-		super(Admin, self).save(*args, **kwargs)
+		super(Membro, self).save(*args, **kwargs)
 
 	class  Meta:
 		ordering = ('nome',)
