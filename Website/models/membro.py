@@ -1,8 +1,5 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from pygments.lexers import get_all_lexers
-from pygments.styles import get_all_styles
-from pygments.formatters.html import HtmlFormatter
 from datetime import date
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager)
 from django.dispatch import receiver
