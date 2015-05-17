@@ -1,0 +1,96 @@
+.container {
+	max-width:1250px;
+	margin-left: auto;
+	margin-right:auto;
+	overflow:hidden;
+}
+
+:hover {
+
+}
+
+.menu {
+	float:left;
+	width:25%;
+	background:rgba(0,138,152,0.8);
+	text-align:center;
+	font-size:1.1em;
+}
+
+.menu ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+.menu ul li {
+	padding:15px 0;
+	border-top:2px solid rgb(0,100,109);
+	border-right:2px solid rgb(0,100,109);
+	border-left:2px solid rgb(0,100,109);
+	color:white;
+	cursor:pointer;
+}
+
+.menu ul li:hover {
+		-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+	background:orange;
+}
+
+.menu a {
+	text-decoration:none;
+	width:100%;
+}
+
+.hdn {
+	display:none;
+}
+
+.menu .hdn li {
+	padding:10px 0;
+	border-top:2px solid rgb(0,100,109);
+	border-right:2px solid rgb(0,100,109);
+	border-left:2px solid rgb(0,100,109);
+	color: rgb(0,100,109);
+}
+
+.menu .hdn {
+	background:white;
+	/*font-size:0.9em;*/
+}
+
+.last {
+	border-bottom:2px solid rgb(0,100,109);
+}
+
+.main {
+	width:65%;
+	min-height:50%;
+	background:white;
+	float:right;
+	margin-left:5%;
+	border:2px solid rgb(0,100,109);
+	margin-bottom:70px;
+}
+
+.wrap-txt {
+	margin:30px;
+	color:rgb(0,100,109);
+}
+
+.menu {
+	margin-bottom:60px;
+}
+
+header #login-img {
+	float:none;
+}
+
+header {
+		margin-top:30px;
+	margin-bottom:30px;
+}

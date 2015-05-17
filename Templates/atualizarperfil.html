@@ -1,0 +1,52 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/homeStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Atualizar Perfil
+{% endblock %}
+
+{% block body %}
+
+			<div class="login-form-div">
+				<label for="inputNome">Nome</label>
+				<input type="text" name="nome" id="inputNome" class="login-form-input" placeholder="">
+			</div>
+
+						<div class="login-form-div">
+				<label for="inputEmail">E-mail</label>
+				<input type="text" name="email" id="inputEmail" class="login-form-input" placeholder="">
+			</div>
+
+			<div class="login-form-div">
+				<label for="inputPassword">Senha</label>
+				<input type="text" name="password" id="inputPassword" class="login-form-input" placeholder="">
+			</div>
+
+						<div class="login-form-div">
+				<label for="inputPassword">Telefone</label>
+				<input type="text" name="telefone" id="inputTelefone" class="login-form-input" placeholder="">
+			</div>
+
+						<div class="login-form-div">
+				<label for="inputSetor">Setor</label><br />
+			<select>
+  <option value="p&d">P&D</option>
+  <option value="rh">RH</option>
+</select>
+</div>
+
+			<br /><div id="loginButtonDiv" class="login-form-div">
+				<span id="loginButton" onclick="#">Atualizar</span>
+			</div><br />
+
+		</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

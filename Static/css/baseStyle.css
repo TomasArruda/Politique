@@ -16,19 +16,17 @@ body {
 }
 
 .container {
-	margin: 0 150px 0 150px;
+	min-height: 100%;
+		margin: 0 150px;
+  	margin-bottom: -52px; 
 }
+
 
 footer {
 	width: 100%;
 	background-color: rgba(0,138,152,0.8);
 	color: white;	
-	position: absolute;
-	bottom: 0;
 	min-width: 1150px;
 	height: 50px;
 	border-top: 2px solid rgb(0,100,109);
-}
-
-#footer {
 }
