@@ -7,6 +7,35 @@
 {% endblock %}
 
 {% block body %}
+
+<div id="home-container">
+	<div id="login-field">
+
+		<img id="login-img" src="{% static 'img/politique-logo.jpg' %}">
+
+		<div>
+			<div class="login-form-div">
+				<label for="inputUsername">Username</label>
+				<input type="text" name="username" id="inputUsername" class="login-form-input" placeholder="Digite o seu nome de usuário">
+			</div>
+
+			<div class="login-form-div">
+				<label for="inputPassword">Senha</label>
+				<input type="text" name="password" id="inputPassword" class="login-form-input" placeholder="Digite a sua senha">
+			</div>
+
+			<div id="loginButtonDiv" class="login-form-div">
+				<span id="loginButton" onclick="#">Entrar</span>
+			</div>
+
+			<div id="forgotPasswordDiv" class="login-form-div">
+				<a id="forgotPassword" href="#">Esqueci minha senha!</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}

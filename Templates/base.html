@@ -6,6 +6,8 @@
 
 		<title>{% block title %}Politiquê?{% endblock %}</title>
 
+		<link rel="stylesheet" href="{% static 'css/baseStyle.css' %}" type="text/css"/>
+
 		{% block css %}
 		{% endblock %}
 	</head>
@@ -14,7 +16,7 @@
 		<div class="container">
 			{% block body %}
 			{% endblock %}
-		</div>
+		</div>		
 
 		{% block scripts %}
 		{% endblock %}
@@ -22,7 +24,7 @@
 
 	<footer>
 
-		<div class="container">
+		<div id="footer" class="container">
 
 		</div>
 
