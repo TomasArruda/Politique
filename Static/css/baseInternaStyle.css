@@ -1,13 +1,11 @@
-.container {
-	max-width:1250px;
-	margin-left: auto;
-	margin-right:auto;
-	overflow:hidden;
+.navbar {
+	height: 50px;
+	background: rgba(255,255,255,0.9);
+	margin-bottom: 30px;
+	border-bottom: 2px solid rgb(0,100,109);
 }
 
-:hover {
-
-}
+/*--- Menu Lateral ---*/
 
 .menu {
 	float:left;
@@ -15,12 +13,18 @@
 	background:rgba(0,138,152,0.8);
 	text-align:center;
 	font-size:1.1em;
+	border-radius: 10px;
 }
 
 .menu ul {
 	list-style-type: none;
 	padding:0;
 	margin:0;
+}
+
+.first{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 .menu ul li {
@@ -33,7 +37,7 @@
 }
 
 .menu ul li:hover {
-		-webkit-transition: all 500ms ease;
+	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
@@ -64,17 +68,21 @@
 }
 
 .last {
-	border-bottom:2px solid rgb(0,100,109);
+	border-bottom: 2px solid rgb(0,100,109);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
+/*-----------------*/
+
+/*--- Tela Principal ---*/
 .main {
-	width:65%;
+	width:70%;
 	min-height:50%;
-	background:white;
-	float:right;
-	margin-left:5%;
+	background: rgba(255,255,255,0.9);
+	float: right;
 	border:2px solid rgb(0,100,109);
-	margin-bottom:70px;
+	border-radius: 10px;
 }
 
 .wrap-txt {
@@ -86,11 +94,4 @@
 	margin-bottom:60px;
 }
 
-header #login-img {
-	float:none;
-}
-
-header {
-		margin-top:30px;
-	margin-bottom:30px;
-}
+/*-----------------------*/

@@ -11,16 +11,14 @@ html {
 body {
 	margin: 0;
 	min-width: 1150px;
-	min-height: 600px;
+	min-height: 100%;
 	background-color: rgba(239, 133, 11,0.8);
 }
 
 .container {
 	min-height: 100%;
-		margin: 0 150px;
-  	margin-bottom: -52px; 
+	margin: 0 150px;
 }
-
 
 footer {
 	width: 100%;

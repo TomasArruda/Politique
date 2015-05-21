@@ -1,70 +1,70 @@
 <html>
-<head>
-	<meta http-equiv="Content-type" content="text/html"/>
-	<meta charset="utf-8"/> 
-	{% load staticfiles %}
+	<head>
+		<meta http-equiv="Content-type" content="text/html"/>
+		<meta charset="utf-8"/> 
+		{% load staticfiles %}
 
-	<title>{% block title %}Politiquê?{% endblock %}</title>
+		<title>{% block title %}Politiquê?{% endblock %}</title>
 
-	<link rel="stylesheet" href="{% static 'css/baseStyle.css' %}" type="text/css"/>
-	<link rel="stylesheet" href="{% static 'css/baseInterna.css' %}" type="text/css"/>
+		<link rel="stylesheet" href="{% static 'css/baseStyle.css' %}" type="text/css"/>
+		<link rel="stylesheet" href="{% static 'css/baseInternaStyle.css' %}" type="text/css"/>
 
-	{% block css %}
-	{% endblock %}
-</head>
-<body>
-
-	<div class="container">
-
-		<header>
-		<img id="login-img" src="{% static 'img/politique-logo.jpg' %}">
-	</header>
-
-		<div class="menu">
-			<ul>
-				<a href="#"><li>Home Page</li></a>
-				<a href="#"><li>Setores</li></a>
-				<li class="btn-show">Cadastrar</li>
-				<div class="hdn">
-					<a href="#"><li>Cadastrar Iniciativa</li></a>
-					<a href="#"><li>Cadastrar Evento</li></a>
-					<a href="#"><li>Cadastrar Empresa</li></a>
-					<a href="#"><li>Cadastrar Membro</li></a>
-				</div>
-				<li class="last btn-show">Consultar</li>
-				<div class="hdn">
-					<a href="#"><li>Consultar Iniciativa</li></a>
-					<a href="#"><li>Consultar Evento</li></a>
-					<a href="#"><li>Consultar Empresa</li></a>
-					<a href="#"><li class="last">Consultar Membro</li></a>
-				</div>
-			</ul>
-		</div>
-
-		<div class="main">
-			<div class="wrap-txt">
-				<h1 class="main-title">
-		{% block main-title %}
-		{% endblock %}	
-	</h1>
-		{% block body %}
+		{% block css %}
 		{% endblock %}
-	</div>
-	</div>
-	</div>		
-	<footer>
+	</head>
+	<body>
 
-		<div id="footer">
+		<div class="navbar">
+			<div class="container">
 
+			</div>
 		</div>
 
-	</footer>
+		<div class="container">		
 
-	<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-	<script src="{% static 'js/main.js' %}"></script>
-	{% block scripts %}
-	{% endblock %}
+			<div class="menu">
+				<ul>
+					<a href="#"><li class="first">Home Page</li></a>
+					<a href="#"><li>Setores</li></a>
+					<li class="btn-show">Cadastrar</li>
+					<div class="hdn">
+						<a href="#"><li>Cadastrar Iniciativa</li></a>
+						<a href="#"><li>Cadastrar Evento</li></a>
+						<a href="#"><li>Cadastrar Empresa</li></a>
+						<a href="#"><li>Cadastrar Membro</li></a>
+					</div>
+					<li class="last btn-show">Consultar</li>
+					<div class="hdn">
+						<a href="#"><li>Consulta Genérica</li></a>
+						<a href="#"><li>Consultar Iniciativa</li></a>
+						<a href="#"><li>Consultar Evento</li></a>
+						<a href="#"><li>Consultar Empresa</li></a>
+						<a href="#"><li class="last">Consultar Membro</li></a>
+					</div>
+				</ul>
+			</div>
 
-</body>
+			<div class="main">
+				<div class="wrap-txt">
+					<h1 class="main-title">{% block main-title %}{% endblock %}</h1>
+					{% block body %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>		
+		<footer>
+
+			<div id="footer" class="container">
+
+			</div>
+
+		</footer>
+
+		<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+		{% block scripts %}
+		{% endblock %}
+
+	</body>
 
 </html>
