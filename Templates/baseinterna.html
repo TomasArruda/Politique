@@ -16,7 +16,8 @@
 
 		<div class="navbar">
 			<div class="container">
-
+				<a id="img-link" href="{% url 'atualizarperfil' %}"><img id="navbar-img" src="{% static 'img/politique-logo.jpg' %}"/></a>
+				<a id="welcome-navbar" href="{% url 'atualizarperfil' %}">Olá, Fulano!</a>
 			</div>
 		</div>
 
@@ -33,7 +34,7 @@
 						<a href="#"><li>Cadastrar Empresa</li></a>
 						<a href="#"><li>Cadastrar Membro</li></a>
 					</div>
-					<li class="last btn-show">Consultar</li>
+					<li class="last consulta btn-show">Consultar</li>
 					<div class="hdn">
 						<a href="#"><li>Consulta Genérica</li></a>
 						<a href="#"><li>Consultar Iniciativa</li></a>

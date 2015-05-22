@@ -5,6 +5,23 @@
 	border-bottom: 2px solid rgb(0,100,109);
 }
 
+#navbar-img {
+	height: 40px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+#img-link {
+	float: left;
+}
+
+#welcome-navbar {
+	float: right;
+	margin-top: 15px;
+	text-decoration: none;
+	color:rgb(0,100,109);
+}
+
 /*--- Menu Lateral ---*/
 
 .menu {
@@ -42,7 +59,7 @@
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
-	background:orange;
+	background:rgba(239, 133, 11,0.8);
 }
 
 .menu a {
@@ -52,6 +69,8 @@
 
 .hdn {
 	display:none;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .menu .hdn li {
@@ -60,6 +79,7 @@
 	border-right:2px solid rgb(0,100,109);
 	border-left:2px solid rgb(0,100,109);
 	color: rgb(0,100,109);
+	background: rgba(255,255,255,0.9);
 }
 
 .menu .hdn {
