@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^atualizarperfil/$', views.atualizarperfil, name='atualizarperfil'),
+    url(r'^perfil/$', views.perfil, name='perfil'),
     ]

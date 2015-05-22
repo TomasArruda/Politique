@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	var containerHeightDefault = $(".container").height();
+
 	$( ".btn-show" ).click(function() {
 
 	  	$(this).next().slideToggle( "slow" );
@@ -11,6 +13,7 @@ $(document).ready(function(){
 			} else {
 			  	$(this).addClass("last");
 			}	
-		} 
+		}
+
 	});
 });

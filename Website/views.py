@@ -6,4 +6,7 @@ def home(request):
     return render(request, 'home.html')
 
 def atualizarperfil(request):
-    return render(request, 'atualizarperfil.html')
+    return render(request, 'atualizarPerfil.html')
+
+def perfil(request):
+	return render(request, 'perfil.html')

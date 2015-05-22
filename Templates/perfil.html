@@ -1,0 +1,37 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/perfilStyle.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div id="perfil-head">
+
+	<div id="perfil-img">
+
+	</div>
+
+	<div id="presentation">
+		<h1>Bem vindo, Fulano!</h1>
+		<h2>email@email.com</h2>
+		<h2>Setor</h2>
+		<div id="editPerfilDiv">
+			<span id="editPerfil" onclick="{% url 'atualizarperfil' %}">Editar Perfil</span>
+		</div>
+
+	</div>
+
+</div>
+
+<table>
+	<thead></thead>
+	<tbody></tbody>
+</table>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

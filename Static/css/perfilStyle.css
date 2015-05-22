@@ -1,0 +1,41 @@
+#perfil-head {
+	overflow: auto;
+	position: relative;
+}
+
+#perfil-img {
+	height: 130px;
+	width: 130px;
+	background: green;
+	float: left;
+	margin-right: 30px;
+}
+
+#presentation > h1 {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+#presentation > h2 {
+	margin: 0;
+	font-size: 12px;
+}
+
+#editPerfilDiv {
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	float: left;
+	background-color: rgba(200,200,200,0.5);
+
+	font-size: 12px;
+	margin-left: 160px;
+
+	position: absolute;
+	bottom: 0;
+}
+
+#editPerfilDiv:hover {
+	cursor: pointer;
+	background-color: rgba(200,200,200,0.8);
+}
