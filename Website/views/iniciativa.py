@@ -10,3 +10,6 @@ def IniciativaView(request):
 
 def CadastrarIniciativaView(request):
 	return render(request, 'cadastrarIniciativa.html')
+
+def EditarIniciativaView(request):
+	return render(request, 'editarIniciativa.html')

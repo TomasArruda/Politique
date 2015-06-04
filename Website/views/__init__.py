@@ -6,6 +6,7 @@ from telefone import TelefoneView
 from financiamento import FinanciamentoView
 from iniciativa import IniciativaView
 from iniciativa import CadastrarIniciativaView
+from iniciativa import EditarIniciativaView
 from tipoParceria import TipoParceriaView
 from empresaParceira import EmpresaParceiraView
 from contatoIniciativa import ContatoIniciativaView

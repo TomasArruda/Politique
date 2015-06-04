@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^Financiamento$', views.FinanciamentoView, name='Financiamento'),
     url(r'^Iniciativa$', views.IniciativaView, name='Iniciativa'),
     url(r'^CadastrarIniciativa$', views.CadastrarIniciativaView, name='CadastrarIniciativa'),
+    url(r'^EditarIniciativa$', views.EditarIniciativaView, name='EditarIniciativa'),
     url(r'^Setor$', views.SetorView, name='Setor'),
     url(r'^Telefone$', views.TelefoneView, name='Telefone'),
     url(r'^TipoParceria$', views.TipoParceriaView, name='TipoParceria'),
