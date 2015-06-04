@@ -13,17 +13,18 @@
 		{% endblock %}
 	</head>
 	<body>
-
+<div class="page-wrap">
 		<div class="navbar">
-			<div class="container">
+				<div class="container">
 				<a id="img-link" href="{% url 'perfil' %}"><img id="navbar-img" src="{% static 'img/politique-logo.jpg' %}"/></a>
 				<button id="logoutBtn" href="{% url 'home' %}"><img id="logoutImg" src="{% static 'img/logout.png' %}"></button>
 				<a id="welcome-navbar" href="{% url 'perfil' %}">Olá, Fulano!</a>
 			</div>
-		</div>
+			</div>
+	
 
-		<div class="container">		
-
+		
+			<div class="container">
 			<div class="menu">
 				<ul>
 					<li id="first">Menu</li>
@@ -54,6 +55,7 @@
 				</div>
 			</div>
 		</div>		
+	</div>
 		<footer>
 
 			<div id="footer" class="container">

@@ -12,44 +12,44 @@ Setores
 
 {% block body %}
 
+<div class="setorWrap">
+
+	<div class="cadastrarSetor">
+		<h2>Cadastrar setor</h2>
+
+
+		<div class="cadastrar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputSetor">Permissão</label><br />
+			<select>
+				<option value="p&d">Editar e Remover</option>
+				<option value="rh">Editar</option>
+				<option value="rh">Ler</option>
+			</select>
+		</div>
+
+		<div class="buttonDiv cadastrar-form-div">
+			<span id="removerButton" class="button" onclick="#">Cadastrar</span>
+		</div>
+	</div>
+
+	<div class="removerSetor">
+	<h2>Remover setor</h2>
+
 		<select>
-		  	<option value="p&d">P&D</option>
-		  	<option value="rh">RH</option>
+			<option value="p&d">P&D</option>
+			<option value="rh">RH</option>
 		</select>
-
-		<span id="atualizarButton" onclick="#">Remover</span>
-
-	<div class="atualizar-form-div">
-		<label for="inputNome">Nome</label>
-		<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">
+		<div class="buttonDiv cadastrar-form-div">
+			<span id="cadastrarButton" class="button" onclick="#">Remover</span>
+		</div>
 	</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputEmail">E-mail</label>
-		<input type="text" name="email" id="inputEmail" class="atualizar-form-input" placeholder="">
-	</div>
-
-	<div class="atualizar-form-div">
-		<label for="inputPassword">Senha</label>
-		<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
-	</div>
-
-	<div class="atualizar-form-div">
-		<label for="inputPassword">Telefones</label>
-		<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
-	</div>
-
-	<div class="atualizar-form-div">
-		<label for="inputSetor">Setor</label><br />
-		<select>
-		  	<option value="p&d">P&D</option>
-		  	<option value="rh">RH</option>
-		</select>
-	</div>
-	
-	<div id="atualizarButtonDiv" class="atualizar-form-div">
-		<span id="atualizarButton" onclick="#">Cadastrar</span>
-	</div>
+</div>
 
 {% endblock %}
 

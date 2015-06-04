@@ -16,10 +16,14 @@ body {
 	background-color: rgba(239, 133, 11,0.8);
 }
 
-.container {
+.page-wrap {
 	min-height: 100%;
-	margin: 0 150px;
+	margin-bottom: -52px;
 	overflow: auto;
+}
+
+.container {
+	margin:0 150px;
 }
 
 footer {
