@@ -1,0 +1,52 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/perfilStyle.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div id="perfil-head">
+
+	<div id="perfil-img">
+
+	</div>
+
+	<div id="presentation">
+		<h1>Bem vindo, Fulano!</h1>
+		<h2>email@email.com</h2>
+		<h2>Setor</h2>
+		<div id="editPerfilDiv">
+			<span id="editPerfil" onclick="goAtualizarPerfil();">Editar Perfil</span>
+		</div>
+
+	</div>
+
+</div>
+
+<table id="perfil-table">
+	<thead>
+		<tr>
+			<th id="atividade-tab">Atividade</th>
+			<th class="last-cell">Nome</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Promover palestras</td>
+			<td class="last-cell">Iniciativa 1</td>
+		</tr>
+		<tr class="last-line">
+			<td>Propagar política nas escolas</td>
+			<td class="last-cell">Evento 4</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/perfil.js' %}"></script>
+{% endblock %}

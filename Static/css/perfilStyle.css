@@ -1,0 +1,103 @@
+#perfil-head {
+	overflow: auto;
+	position: relative;
+}
+
+#perfil-img {
+	height: 130px;
+	width: 130px;
+	background: rgba(255,123,0,1);
+	float: left;
+	margin-right: 30px;
+}
+
+#presentation > h1 {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+#presentation > h2 {
+	margin: 0;
+	font-size: 12px;
+}
+
+#editPerfilDiv {
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	float: left;
+	background-color: rgba(200,200,200,0.5);
+
+	font-size: 12px;
+	margin-left: 160px;
+
+	position: absolute;
+	bottom: 0;
+}
+
+#editPerfilDiv:hover {
+	cursor: pointer;
+	background-color: rgba(200,200,200,0.8);
+}
+
+/*--- Tabela ---*/
+
+#perfil-table {
+	width: 100%;
+	border: 2px solid rgb(42,122,114);
+	border-radius: 5px;
+	margin-top: 20px;
+	border-collapse: separate;
+	border-spacing: 0;
+	color: white;
+	text-align: justify;
+}
+
+/*--- Headers ---*/
+#perfil-table > thead > tr > th {
+	border-bottom: 2px solid rgb(42,122,114);
+	background: rgb(29, 84, 79);
+	color: white;
+	border-right: 2px solid rgb(42,122,114);
+	height: 35px;
+	padding-left: 10px;
+}
+
+#perfil-table .last-cell {
+	border-right: none;
+}
+
+#perfil-table .last-line > td {
+	border-bottom: none;
+}
+
+/*--- Making the corners rounded ---*/
+#perfil-table tr:last-child td:first-child {
+	border-bottom-left-radius: 3px;
+}
+
+#perfil-table tr:last-child td:last-child {
+	border-bottom-right-radius: 3px;
+}
+
+#perfil-table tr:first-child th:first-child {
+	border-top-left-radius: 3px; 
+}
+
+#perfil-table tr:first-child th:last-child {
+	border-top-right-radius: 3px;
+}
+/*------------------------------------*/
+
+#atividade-tab {
+	width: 35%;
+}
+
+#perfil-table > tbody > tr > td {
+	font-size: 14px;
+	padding-left: 10px;
+	background: rgb(66, 142, 124);
+	border-right: 2px solid rgb(42,122,114);
+	border-bottom: 2px solid rgb(42,122,114);
+	height: 25px;
+}

@@ -16,7 +16,9 @@
 
 		<div class="navbar">
 			<div class="container">
-
+				<a id="img-link" href="{% url 'perfil' %}"><img id="navbar-img" src="{% static 'img/politique-logo.jpg' %}"/></a>
+				<button id="logoutBtn" href="{% url 'home' %}"><img id="logoutImg" src="{% static 'img/logout.png' %}"></button>
+				<a id="welcome-navbar" href="{% url 'perfil' %}">Olá, Fulano!</a>
 			</div>
 		</div>
 
@@ -24,7 +26,7 @@
 
 			<div class="menu">
 				<ul>
-					<a href="#"><li class="first">Home Page</li></a>
+					<li id="first">Menu</li>
 					<a href="#"><li>Setores</li></a>
 					<li class="btn-show">Cadastrar</li>
 					<div class="hdn">
@@ -33,7 +35,7 @@
 						<a href="#"><li>Cadastrar Empresa</li></a>
 						<a href="#"><li>Cadastrar Membro</li></a>
 					</div>
-					<li class="last btn-show">Consultar</li>
+					<li class="last consulta btn-show">Consultar</li>
 					<div class="hdn">
 						<a href="#"><li>Consulta Genérica</li></a>
 						<a href="#"><li>Consultar Iniciativa</li></a>

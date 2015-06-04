@@ -1,0 +1,50 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/membroStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Cadastrar Membro
+{% endblock %}
+
+{% block body %}
+
+	<div class="atualizar-form-div">
+		<label for="inputNome">Nome</label>
+		<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="inputEmail">E-mail</label>
+		<input type="text" name="email" id="inputEmail" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="inputPassword">Senha</label>
+		<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="inputPassword">Telefones</label>
+		<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="inputSetor">Setor</label><br />
+		<select>
+		  	<option value="p&d">P&D</option>
+		  	<option value="rh">RH</option>
+		</select>
+	</div>
+	
+	<div id="atualizarButtonDiv" class="atualizar-form-div">
+		<span id="atualizarButton" onclick="#">Cadastrar</span>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
