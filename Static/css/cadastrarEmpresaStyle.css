@@ -1,0 +1,32 @@
+.cadastrar-form-div {
+	margin-bottom: 10px;
+}
+
+.cadastrar-form-input {
+	display: block;
+	padding: 2.5px;
+	width: 100%;
+	border-radius: 4px;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+#cadastrarButtonDiv {
+	margin: 0;
+	margin-right: 25px;
+	margin-top: 25px;
+	height: 45px;
+	float: right;
+}
+
+#cadastrarButton {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: rgba(200,200,200,0.5);
+}
+
+#cadastrarButton:hover {
+	cursor: pointer;
+	background-color: rgba(200,200,200,0.8);
+}

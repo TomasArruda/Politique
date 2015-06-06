@@ -1,0 +1,67 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cadastrarEventoStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Cadastrar Evento
+{% endblock %}
+
+{% block body %}
+<form id="cadastrarEvento-form" action="" method="post">
+	
+	<div class="cadastrar-form-div">
+		<label for="inputNome">Nome</label>
+		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+	</div>
+
+	<div class="cadastrar-form-div">
+		<label for="inputData">Data</label>
+		<input type="date" name="data" id="inputData" class="cadastrar-form-input" placeholder="">
+	</div>
+
+	<div class="cadastrar-form-div">
+		<label for="inputFeedback">FeedBack</label>
+		<input type="text" name="feedback" id="inputFeedback" class="cadastrar-form-input" placeholder="">
+	</div>
+
+	<div class="cadastrar-form-div">
+		<label for="cmbBoxEvento">Tipo de Evento</label><br />
+		<select id="cmbBoxEvento">
+		  	<option value="capInterna">Capacitação Interna</option>
+		  	<option value="capExterna">Capacitação Externa</option>
+		  	<option value="institucional">Evento Institucional</option>
+		</select>
+	</div>	
+	
+	<div id="tipoEvento">
+		<div class="cadastrar-form-div">
+			<label for="inputAtributos">Atributos de Evento</label>
+			<input type="text" name="atributos" id="inputAtributos" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputMaterial">Material</label>
+			<input type="text" name="material" id="inputMaterial" class="cadastrar-form-input" placeholder="">
+		</div>
+		<!-- Adicionar mascara para essas datas -->
+		<div class="cadastrar-form-div">
+			<label for="inputDatas">Datas</label>
+			<input type="text" name="datas" id="inputDatas" class="cadastrar-form-input" placeholder="">
+		</div>
+	</div>
+
+	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
+		<input id="cadastrarButton" type="submit" value="Cadastrar">
+	</div>
+	
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/cadastrarEvento.js' %}"></script>
+{% endblock %}
