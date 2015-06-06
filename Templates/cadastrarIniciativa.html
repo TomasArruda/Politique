@@ -11,7 +11,8 @@ Cadastrar Iniciativa
 {% endblock %}
 
 {% block body %}
-<form id="cadastrarIniciativa-form" action="" method="post">
+<form id="cadastrarIniciativa-form" action="{%url 'CadastrarIniciativa'%}" method="post">
+	{% csrf_token %}
 	<div class="col1">
 		<div class="cadastrar-form-div">
 			<label for="inputNome">Nome</label>
@@ -34,7 +35,7 @@ Cadastrar Iniciativa
 
 		<div class="cadastrar-form-div">
 			<label for="inputPublico">Público alvo:</label>
-			<input type="text" name="publico" id="inputPublico" class="cadastrar-form-input" placeholder="">
+			<input type="text" name="publicoAlvo" id="inputPublico" class="cadastrar-form-input" placeholder="">
 		</div>
 
 		<div class="cadastrar-form-div">
@@ -44,12 +45,12 @@ Cadastrar Iniciativa
 
 		<div class="cadastrar-form-div">
 			<label for="inputQuestoes">Questões chaves</label>
-			<input type="text" name="questoes" id="inputQuestoes" class="cadastrar-form-input" placeholder="">
+			<input type="text" name="questoesChaves" id="inputQuestoes" class="cadastrar-form-input" placeholder="">
 		</div>
 
 		<div class="cadastrar-form-div">
 			<label for="inputArea">Área de atuação</label>
-			<input type="text" name="area" id="inputArea" class="cadastrar-form-input" placeholder="">
+			<input type="text" name="areaAtuacao" id="inputArea" class="cadastrar-form-input" placeholder="">
 		</div>
 
 		<div class="cadastrar-form-div">
@@ -62,7 +63,7 @@ Cadastrar Iniciativa
 	<div class="col2">
 		<div class="cadastrar-form-div">
 			<label for="inputAnoFund">Ano de fundação</label>
-			<input type="text" name="anoFund" id="inputAnoFund" class="cadastrar-form-input" placeholder="">
+			<input type="number" min="0" value="1" name="anoFundacao" id="inputAnoFund" class="cadastrar-form-input" placeholder="">
 		</div>
 
 		<div class="cadastrar-form-div">
@@ -77,7 +78,7 @@ Cadastrar Iniciativa
 
 		<div class="cadastrar-form-div">
 			<label for="inputProgramas">Principais Programas</label>
-			<input type="text" name="programas" id="inputProgramas" class="cadastrar-form-input" placeholder="">
+			<input type="text" name="principaisProgramas" id="inputProgramas" class="cadastrar-form-input" placeholder="">
 		</div>
 
 		<div class="cadastrar-form-div">
@@ -87,11 +88,11 @@ Cadastrar Iniciativa
 
 		<div class="cadastrar-form-div">
 			<label for="inputRealizada">Realizada</label>
-			<input type="text" name="realizada" id="inputRealizada" class="cadastrar-form-input" placeholder="">
+			<input type="checkbox" name="realizada" id="inputRealizada" class="cadastrar-form-input" placeholder="">
 		</div>
 		<div class="cadastrar-form-div">
 			<label for="inputPercepcao">Percepção de Presença</label>
-			<input type="text" name="percepcao" id="inputPercepcao" class="cadastrar-form-input" placeholder="">
+			<input type="text" name="percepcaoPresenca" id="inputPercepcao" class="cadastrar-form-input" placeholder="">
 		</div>
 		<div class="cadastrar-form-div">
 			<label for="inputContato">Contato</label>
