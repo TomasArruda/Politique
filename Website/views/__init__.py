@@ -1,4 +1,3 @@
-from membro import MembroView
 from membro import cadastrarMembroView
 from setor import SetorView
 from evento import EventoView
