@@ -5,6 +5,6 @@ from Website.models import Membro
 class MembroForm(forms.Form):
 	nome = forms.CharField()
 	email = forms.CharField()
-	senha = forms.CharField(widget=forms.PasswordInput())
+	password = forms.CharField()
 	telefone = forms.CharField()
 	setor = forms.CharField()
