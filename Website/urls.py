@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^AtualizarPerfil$', views.atualizarPerfilView, name='atualizarPerfil'),
     url(r'^CadastrarMembro$', views.cadastrarMembroView, name='CadastrarMembro'),
     url(r'^Perfil$', views.perfilView, name='perfil'),
-    url(r'^Membro$', views.MembroView, name='Membro'),
     url(r'^CapacitacaoInterna$', views.CapacitacaoInternaView, name='CapacitacaoInterna'),
     url(r'^CapacitacaoExterna$', views.CapacitacaoExternaView, name='CapacitacaoExterna'),
     url(r'^ContatoCapacitacao$', views.ContatoCapacitacaoView, name='ContatoCapacitacao'),

@@ -1,5 +1,5 @@
-from membro import MembroView
 from membro import cadastrarMembroView
+from membro import cadastrarMembro
 from setor import SetorView
 from evento import EventoView
 from telefone import TelefoneView
