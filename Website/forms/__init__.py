@@ -1,1 +1,1 @@
-from membro import MembroForm
+from membro import CustomUserForm
