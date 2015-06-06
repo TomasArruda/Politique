@@ -123,17 +123,16 @@
 
 /*--- Tela Principal ---*/
 .main {
-	width:70%;
+	min-width:68%;
 	background: rgba(255,255,255,0.8);
 	float: right;
 	border: 2px solid rgb(0,100,109);
 	border-radius: 10px;
 	margin-bottom: 30px;
+	padding: 20px;
 }
 
 .wrap-txt {
-	margin:30px;
-	margin-top: 10px;
 	color:rgb(0,100,109);
 }
 
