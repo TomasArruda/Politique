@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Membro, CapacitacaoExterna, CapacitacaoInterna, ContatoCapacitacao, ContatoIniciativa, EmpresaParceira, Evento, EventoInstitucional, Financiamento, Iniciativa, Setor, Telefone, TipoParceria
+from .models import CustomUser, CapacitacaoExterna, CapacitacaoInterna, ContatoCapacitacao, ContatoIniciativa, EmpresaParceira, Evento, EventoInstitucional, Financiamento, Iniciativa, Setor, Telefone, TipoParceria
+admin.site.register(CustomUser)
 
-admin.site.register(Membro)
 admin.site.register(CapacitacaoExterna)
 admin.site.register(CapacitacaoInterna)
 admin.site.register(ContatoCapacitacao)

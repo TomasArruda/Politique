@@ -1,26 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from Website.models import Membro
-from Website.forms import MembroForm
+from Website.models import Setor
+from Website.forms import CustomUserForm
 
 def cadastrarMembroView(request):
-    registered = False
 
-    if request.method == 'POST':
-        membro_form = MembroForm(data=request.POST)
+    user_form = CustomUserForm(request.POST or None)
 
-        if membro_form.is_valid():
-            user.set_password(user.password)
-            user.save()
+    if user_form.is_valid():
+        user_form.save()
 
-            profile = membro_form.save(commit=False)
-            profile.user = user
-
-            profile.save()
-
-            registered = True
-        else:
-            print membro_form.errors
-    else:
-	    return render(request, 'cadastrarmembro.html')
+    return render(request, 'cadastrarmembro.html', {"form": user_form})
 
