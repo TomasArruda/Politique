@@ -1,0 +1,111 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cadastrarEmpresaStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Cadastrar Empresa
+{% endblock %}
+
+{% block body %}
+<form id="cadastrarIniciativa-form" action="" method="post">
+	<div class="col1">
+		<div class="cadastrar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputData">Data</label>
+			<input type="date" name="data" id="inputData" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputTipoMembro">Tipo de Membro</label>
+			<!--		<select class="cadastrar-form-input">
+				<option value="p&d">P&D</option>
+				<option value="rh">RH</option>
+			</select>-->
+			<input type="text" name="tipoMembro" id="tipoMembro" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputPublico">Público alvo:</label>
+			<input type="text" name="publico" id="inputPublico" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputDuracao">Duração</label><br />
+			<input type="text" name="duracao" id="inputDuracao" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputQuestoes">Questões chaves</label>
+			<input type="text" name="questoes" id="inputQuestoes" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputArea">Área de atuação</label>
+			<input type="text" name="area" id="inputArea" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputMissao">Missão</label>
+			<input type="text" name="missao" id="inputMissao" class="cadastrar-form-input" placeholder="">
+		</div>
+	</div>
+
+
+	<div class="col2">
+		<div class="cadastrar-form-div">
+			<label for="inputAnoFund">Ano de fundação</label>
+			<input type="text" name="anoFund" id="inputAnoFund" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputWebsite">Website</label>
+			<input type="text" name="website" id="inputWebsite" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputParceiros">Parceiros</label>
+			<input type="text" name="parceiros" id="inputParceiros" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputProgramas">Principais Programas</label>
+			<input type="text" name="programas" id="inputProgramas" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputApoio">Apoio</label>
+			<input type="text" name="apoio" id="inputApoio" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputRealizada">Realizada</label>
+			<input type="text" name="realizada" id="inputRealizada" class="cadastrar-form-input" placeholder="">
+		</div>
+		<div class="cadastrar-form-div">
+			<label for="inputPercepcao">Percepção de Presença</label>
+			<input type="text" name="percepcao" id="inputPercepcao" class="cadastrar-form-input" placeholder="">
+		</div>
+		<div class="cadastrar-form-div">
+			<label for="inputContato">Contato</label>
+			<input type="text" name="contato" id="inputContato" class="cadastrar-form-input" placeholder="">
+		</div>
+	</div>
+	</div>
+
+	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
+		<input id="cadastrarButton" type="submit" value="Cadastrar">
+	</div>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

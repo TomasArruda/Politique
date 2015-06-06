@@ -21,8 +21,6 @@
 					<a id="welcome-navbar" href="{% url 'perfil' %}">Olá, Fulano!</a>
 				</div>
 			</div>
-	
-
 		
 			<div class="container">
 				<div class="menu">
@@ -31,10 +29,10 @@
 						<a href="#"><li>Setores</li></a>
 						<li class="btn-show">Cadastrar</li>
 						<div class="hdn">
-							<a href="#"><li>Cadastrar Iniciativa</li></a>
+							<a href="{% url 'CadastrarIniciativa' %}"><li>Cadastrar Iniciativa</li></a>
 							<a href="#"><li>Cadastrar Evento</li></a>
 							<a href="#"><li>Cadastrar Empresa</li></a>
-							<a href="#"><li>Cadastrar Membro</li></a>
+							<a href="{% url 'CadastrarMembro' %}"><li>Cadastrar Membro</li></a>
 						</div>
 						<li class="last consulta btn-show">Consultar</li>
 						<div class="hdn">
