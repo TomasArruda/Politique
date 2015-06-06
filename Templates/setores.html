@@ -1,0 +1,57 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/setoresStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Setores
+{% endblock %}
+
+{% block body %}
+
+<div class="setorWrap">
+
+	<div class="cadastrarSetor">
+		<h2>Cadastrar setor</h2>
+
+
+		<div class="cadastrar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputPermissao">Permissão</label><br />
+			<select>
+				<option value="p&d">Editar e Remover</option>
+				<option value="rh">Editar</option>
+				<option value="rh">Ler</option>
+			</select>
+		</div>
+
+		<div class="buttonDiv cadastrar-form-div">
+			<span id="removerButton" class="button" onclick="#">Cadastrar</span>
+		</div>
+	</div>
+
+	<div class="removerSetor">
+	<h2>Remover setor</h2>
+
+		<select>
+			<option value="p&d">P&D</option>
+			<option value="rh">RH</option>
+		</select>
+		<div class="buttonDiv cadastrar-form-div">
+			<span id="removerButton" class="button" onclick="#">Remover</span>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

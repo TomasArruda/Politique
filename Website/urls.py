@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.homeView, name='home'),
     url(r'^AtualizarPerfil$', views.atualizarPerfilView, name='atualizarPerfil'),
+    url(r'^CadastrarMembro$', views.cadastrarMembroView, name='CadastrarMembro'),
     url(r'^Perfil$', views.perfilView, name='perfil'),
     url(r'^Membro$', views.MembroView, name='Membro'),
     url(r'^CapacitacaoInterna$', views.CapacitacaoInternaView, name='CapacitacaoInterna'),
@@ -16,6 +17,8 @@ urlpatterns = [
     url(r'^EventoInstitucional$', views.EventoInstitucionalView, name='EventoInstitucional'),
     url(r'^Financiamento$', views.FinanciamentoView, name='Financiamento'),
     url(r'^Iniciativa$', views.IniciativaView, name='Iniciativa'),
+    url(r'^CadastrarIniciativa$', views.CadastrarIniciativaView, name='CadastrarIniciativa'),
+    url(r'^EditarIniciativa$', views.EditarIniciativaView, name='EditarIniciativa'),
     url(r'^Setor$', views.SetorView, name='Setor'),
     url(r'^Telefone$', views.TelefoneView, name='Telefone'),
     url(r'^TipoParceria$', views.TipoParceriaView, name='TipoParceria'),
