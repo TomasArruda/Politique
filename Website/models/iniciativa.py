@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 import binascii
 import os
+from customuser import CustomUser
 
 class Iniciativa(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
@@ -23,7 +24,7 @@ class Iniciativa(models.Model):
 	percepcaoPresenca = models.CharField(max_length=100, blank=False, default='', null=False)
 	Realizada = models.BooleanField(default=True)
 
-	membro = models.ForeignKey('Membro',default='', null=False, blank = False)
+	membro = models.ForeignKey(CustomUser,default='', null=False, blank = False)
 
 	class  Meta:
 		ordering = ('nome',)

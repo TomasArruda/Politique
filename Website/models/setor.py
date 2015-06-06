@@ -10,5 +10,8 @@ class Setor(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
 	Permissao = models.CharField(max_length=150, blank=False, default='', null=False)
 
+	def __str__(self):
+		return self.nome
+
 	class  Meta:
 		ordering = ('nome',)
