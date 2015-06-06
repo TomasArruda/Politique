@@ -12,7 +12,8 @@ Cadastrar Membro
 
 {% block body %}
 
-	<form id="cadastrarMembro-form" action="" method="post">
+	<form id="cadastrarMembro-form" action="{%url 'CadastrarMembro'%}" method="post">
+		{% csrf_token %}
 		<div class="atualizar-form-div">
 			<label for="inputNome">Nome</label>
 			<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">

@@ -4,23 +4,27 @@ from Website.models import Membro
 from Website.forms import MembroForm
 
 def cadastrarMembroView(request):
-    registered = False
-
     if request.method == 'POST':
-        membro_form = MembroForm(data=request.POST)
+        membro_form = MembroForm(request.POST)
 
         if membro_form.is_valid():
-            user.set_password(user.password)
-            user.save()
+            nome = membro_form.cleaned_data["nome"]
+            email = membro_form.cleaned_data["email"]
+            senha = membro_form.cleaned_data["senha"]
+            telefone = membro_form.cleaned_data["senha"]
+            setor = membro_form.cleaned_data["senha"]
 
-            profile = membro_form.save(commit=False)
-            profile.user = user
+            membro = Membro(nome=nome, email = email, senha = senha, telefone = telefone, setor = setor)
+            #membro.set_password(membro.password)
+            membro.save()
 
-            profile.save()
+        # profile = membro_form.save(commit=False)
+        # profile.membro = membro
 
-            registered = True
+        # profile.save()
         else:
             print membro_form.errors
     else:
-	    return render(request, 'cadastrarmembro.html')
+        membro_form = MembroForm()
+    return render(request, 'cadastrarmembro.html', {"form": membro_form})
 
