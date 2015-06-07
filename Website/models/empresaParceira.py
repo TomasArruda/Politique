@@ -16,5 +16,8 @@ class EmpresaParceira(models.Model):
 	tipoParceria = models.ForeignKey('TipoParceria',default='', null=True, blank = False)
 	iniciativas = models.ManyToManyField('Iniciativa')
 
+	def __str__(self):
+		return self.nome
+
 	class  Meta:
 		ordering = ('nome',)

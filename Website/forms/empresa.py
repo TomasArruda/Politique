@@ -4,4 +4,3 @@ from django import forms
 class EmpresaForm(forms.ModelForm):
 	class Meta:
 		model = EmpresaParceira
-		exclude = ('iniciativas',)

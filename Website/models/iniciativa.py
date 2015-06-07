@@ -26,7 +26,10 @@ class Iniciativa(models.Model):
 	percepcaoPresenca = models.CharField(max_length=100, blank=False, default='', null=False)
 	contato = models.CharField(max_length=100, blank=False, default='', null=False)
 
-	#membro = models.ForeignKey(CustomUser,default='', null=True, blank = False)
+	membro = models.ForeignKey(CustomUser,default='', null=True, blank = False)
 
+	def __str__(self):
+		return self.nome
+	
 	class  Meta:
 		ordering = ('nome',)
