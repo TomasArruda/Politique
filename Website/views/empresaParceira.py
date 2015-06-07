@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from Website.models import EmpresaParceira
+from Website.forms import EmpresaForm
 
 
 def EmpresaParceiraView(request):
@@ -9,4 +10,9 @@ def EmpresaParceiraView(request):
     #render(request, '/membros.html', context)
 
 def CadastrarEmpresaView(request):
-	return render(request, 'cadastrarEmpresa.html')
+	form = EmpresaForm(request.POST or None)
+
+	if form.is_valid():
+		form.save()
+
+	return render(request, 'cadastrarEmpresa.html', { "form" : form })

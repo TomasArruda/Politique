@@ -11,8 +11,8 @@ Cadastrar Empresa
 {% endblock %}
 
 {% block body %}
-<form id="cadastrarEmpresa-form" action="" method="post">
-	
+<form id="cadastrarEmpresa-form" action="{%url 'CadastrarEmpresa'%}" method="post">
+	{% csrf_token %}
 	<div class="cadastrar-form-div">
 		<label for="inputNome">Nome</label>
 		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
@@ -20,7 +20,7 @@ Cadastrar Empresa
 
 	<div class="cadastrar-form-div">
 		<label for="inputRamo">Ramo de atuação</label>
-		<input type="text" name="ramo" id="inputRamo" class="cadastrar-form-input" placeholder="">
+		<input type="text" name="ramoAtuacao" id="inputRamo" class="cadastrar-form-input" placeholder="">
 	</div>
 
 	<div class="cadastrar-form-div">
@@ -39,13 +39,17 @@ Cadastrar Empresa
 
 	<div class="cadastrar-form-div">
 		<label for="inputProposta">Proposta de apoio</label><br />
-		<input type="text" name="proposta" id="inputProposta" class="cadastrar-form-input" placeholder="">
+		<input type="text" name="propostaApoio" id="inputProposta" class="cadastrar-form-input" placeholder="">
 	</div>
 
 	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
 		<input id="cadastrarButton" type="submit" value="Cadastrar">
 	</div>
-	
+
+	<div class="atualizar-form-div">
+		<label for="inputParceria">Tipo de Parceira</label><br />
+		{{ form.tipoParceria }}
+	</div>
 </form>
 
 {% endblock %}
