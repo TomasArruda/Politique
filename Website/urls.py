@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^CadastrarIniciativa$', views.CadastrarIniciativaView, name='CadastrarIniciativa'),
     url(r'^EditarIniciativa$', views.EditarIniciativaView, name='EditarIniciativa'),
     url(r'^Setor$', views.SetorView, name='Setor'),
+    url(r'^CadastrarSetor$', views.CadastrarSetorView, name='CadastrarSetor'),
+    url(r'^RemoverSetor$', views.RemoverSetorView, name='RemoverSetor'),
     url(r'^Telefone$', views.TelefoneView, name='Telefone'),
     url(r'^TipoParceria$', views.TipoParceriaView, name='TipoParceria'),
 

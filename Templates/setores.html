@@ -12,36 +12,60 @@ Setores
 
 {% block body %}
 
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
 <div id="cadastrarSetor">
-	<h2 id="cadastrarTitulo">Cadastrar setor</h2>
-	<div class="cadastrar-form-div">
-		<label for="inputNome">Nome</label>
-		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
-	</div>
+	<h2 id="cadastrarTitulo">Cadastrar setor</h2>	
+	<form id = "cadastrarSetor" action ="{%url 'CadastrarSetor'%}" method="post">
 
-	<div class="cadastrar-form-div">
-		<label for="inputPermissao">Permissão</label><br />
-		<select>
-			<option value="1">Editar e Remover</option>
-			<option value="2">Editar</option>
-			<option value="3">Ler</option>
-		</select>
-	</div>
+		{% csrf_token %}
+		<div class="cadastrar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+		</div>
 
-	<div class="buttonDiv cadastrar-form-div">
-		<span id="cadastrarButton" class="button" onclick="#">Cadastrar</span>
-	</div>
+		<div class="cadastrar-form-div">
+			<label for="inputPermissao">Permissão</label><br />
+			<select name="permissao">
+				<option value="1">Editar e Remover</option>
+				<option value="2">Editar</option>
+				<option value="3">Visualizar</option>
+			</select>
+		</div>
+
+		<div id="cadastrarSetorDiv" class="buttonDiv cadastrar-form-div">
+			<input id="cadastrarButton" type="submit" value="Cadastrar">
+		</div>
+
+	</form> 
 </div>
 
 <div id="removerSetor">
-<h2 id="removerTitulo">Remover setor</h2>
-	<select>
-		<option value="p&d">P&D</option>
-		<option value="rh">RH</option>
-	</select>
-	<div class="buttonDiv cadastrar-form-div">
-		<span id="removerButton" class="button" onclick="#">Remover</span>
-	</div>
+
+	<h2 id="removerTitulo">Remover setor</h2>
+	
+	<form id = "removerSetor" action ="{%url 'RemoverSetor'%}" method="post">
+
+		<div class="cadastrar-form-div">
+			<label for="inputSetor">Setor</label><br/>
+			{{ form.setor }}
+		</div>
+
+		<div id="removerSetorDiv" class="buttonDiv cadastrar-form-div">
+			<input id="removerButton" type="submit" value="Remover">
+		</div>
+
+	</form>
+	
 </div>
 {% endblock %}
 

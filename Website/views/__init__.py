@@ -1,5 +1,7 @@
 from membro import cadastrarMembroView
 from setor import SetorView
+from setor import RemoverSetorView
+from setor import CadastrarSetorView
 from evento import EventoView
 from evento import CadastrarEventoView
 from telefone import TelefoneView

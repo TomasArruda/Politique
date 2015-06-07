@@ -10,6 +10,17 @@
 Cadastrar Iniciativa
 {% endblock %}
 
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
 {% block body %}
 <form id="cadastrarIniciativa-form" action="{%url 'CadastrarIniciativa'%}" method="post">
 	{% csrf_token %}
@@ -98,6 +109,17 @@ Cadastrar Iniciativa
 			<label for="inputContato">Contato</label>
 			<input type="text" name="contato" id="inputContato" class="cadastrar-form-input" placeholder="">
 		</div>
+
+		<div class="atualizar-form-div">
+			<label for="membro">Membro Responsável</label><br />
+			{{ form.membro }}
+		</div>
+		
+		<!-- Precisa resolver isso para aparecer o membro responsavel
+		<div class="cadastrar-form-div">
+			<label for="inputMembro">Membro Responsável</label><br />
+			{{ form.membro }}
+		</div>-->
 	</div>
 	</div>
 

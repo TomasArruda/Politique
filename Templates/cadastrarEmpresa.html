@@ -11,8 +11,20 @@ Cadastrar Empresa
 {% endblock %}
 
 {% block body %}
-<form id="cadastrarEmpresa-form" action="" method="post">
-	
+
+<!-- {% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %} -->
+
+<form id="cadastrarEmpresa-form" action="{%url 'CadastrarEmpresa'%}" method="post">
+	{% csrf_token %}
 	<div class="cadastrar-form-div">
 		<label for="inputNome">Nome</label>
 		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
@@ -20,15 +32,11 @@ Cadastrar Empresa
 
 	<div class="cadastrar-form-div">
 		<label for="inputRamo">Ramo de atuação</label>
-		<input type="text" name="ramo" id="inputRamo" class="cadastrar-form-input" placeholder="">
+		<input type="text" name="ramoAtuacao" id="inputRamo" class="cadastrar-form-input" placeholder="">
 	</div>
 
 	<div class="cadastrar-form-div">
 		<label for="inputBackground">Background</label>
-		<!--		<select class="cadastrar-form-input">
-			<option value="p&d">P&D</option>
-			<option value="rh">RH</option>
-		</select>-->
 		<input type="text" name="background" id="inputBackground" class="cadastrar-form-input" placeholder="">
 	</div>
 
@@ -39,8 +47,24 @@ Cadastrar Empresa
 
 	<div class="cadastrar-form-div">
 		<label for="inputProposta">Proposta de apoio</label><br />
-		<input type="text" name="proposta" id="inputProposta" class="cadastrar-form-input" placeholder="">
+		<input type="text" name="propostaApoio" id="inputProposta" class="cadastrar-form-input" placeholder="">
 	</div>
+
+	<div class="atualizar-form-div">
+		<label for="tipoParceria">Tipo de Parceria</label><br />
+		{{ form.tipoParceria }}
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="iniciativas">Iniciativas</label><br />
+		{{ form.iniciativas }}
+	</div>
+
+	<!-- adicionar combobox de iniciativas relacionadas 
+	<div class="cadastrar-form-div">
+			<label for="inputIniciativa">Iniciativas Relacionadas</label><br />
+			{{ form.iniciativa }}
+	</div> -->
 
 	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
 		<input id="cadastrarButton" type="submit" value="Cadastrar">
