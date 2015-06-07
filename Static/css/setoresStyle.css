@@ -1,6 +1,10 @@
+form {
+	margin: 0;
+}
+
 #cadastrarSetor {
 	background: white;
-	min-width: 300px;
+	min-width: 250px;
 	padding: 20px;
 	float: left;
 	border-radius: 5px;
@@ -38,7 +42,7 @@
 
 #removerSetor {
 	background: white;
-	min-width: 300px;
+	min-width: 250px;
 	padding: 20px;
 	float: left;
 	border-radius: 5px;

@@ -22,7 +22,7 @@ class Iniciativa(models.Model):
 	parceiros = models.CharField(max_length=500, blank=False, default='', null=False)
 	principaisProgramas = models.CharField(max_length=500, blank=False, default='', null=False)
 	apoio = models.CharField(max_length=100, blank=False, default='', null=False)
-	realizada = models.BooleanField(default=True)
+	realizada = models.BooleanField()
 	percepcaoPresenca = models.CharField(max_length=100, blank=False, default='', null=False)
 	contato = models.CharField(max_length=100, blank=False, default='', null=False)
 
