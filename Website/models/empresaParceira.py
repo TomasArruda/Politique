@@ -13,7 +13,7 @@ class EmpresaParceira(models.Model):
 	apoios = models.CharField(max_length=100, blank=False, default='', null=False)
 	propostaApoio = models.CharField(max_length=100, blank=False, default='', null=False)
 
-	tipoParceria = models.ForeignKey('TipoParceria',default='', null=False, blank = False)
+	tipoParceria = models.ForeignKey('TipoParceria',default='', null=True, blank = False)
 	iniciativas = models.ManyToManyField('Iniciativa')
 
 	class  Meta:

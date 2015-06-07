@@ -10,6 +10,7 @@ class ContatoCapacitacao(models.Model):
 	contatos = models.CharField(max_length=500, blank=False, default='', null=False)
 
 	capacitacaoExterna = models.ForeignKey('CapacitacaoExterna',default='', null=False, blank = False)
-	
-	class  Meta:
+
+	class Meta:
 		ordering = ('id',)
+	

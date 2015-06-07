@@ -11,8 +11,8 @@ Cadastrar Evento
 {% endblock %}
 
 {% block body %}
-<form id="cadastrarEvento-form" action="" method="post">
-	
+<form id="cadastrarEvento-form" action="{%url 'CadastrarEvento' %}" method="post">
+	{% csrf_token %}
 	<div class="cadastrar-form-div">
 		<label for="inputNome">Nome</label>
 		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
@@ -30,29 +30,19 @@ Cadastrar Evento
 
 	<div class="cadastrar-form-div">
 		<label for="cmbBoxEvento">Tipo de Evento</label><br />
-		<select id="cmbBoxEvento">
-		  	<option value="capInterna">Capacitação Interna</option>
-		  	<option value="capExterna">Capacitação Externa</option>
-		  	<option value="institucional">Evento Institucional</option>
+		<select id="cmbBoxEvento" name="tipoEvento">
+		  	<option value="1">Capacitação Interna</option>
+		  	<option value="2">Capacitação Externa</option>
+		  	<option value="3">Evento Institucional</option>
 		</select>
 	</div>	
 	
 	<div id="tipoEvento">
-		<div class="cadastrar-form-div">
-			<label for="inputAtributos">Atributos de Evento</label>
-			<input type="text" name="atributos" id="inputAtributos" class="cadastrar-form-input" placeholder="">
-		</div>
-
-		<div class="cadastrar-form-div">
-			<label for="inputMaterial">Material</label>
-			<input type="text" name="material" id="inputMaterial" class="cadastrar-form-input" placeholder="">
-		</div>
-		<!-- Adicionar mascara para essas datas -->
-		<div class="cadastrar-form-div">
-			<label for="inputDatas">Datas</label>
-			<input type="text" name="datas" id="inputDatas" class="cadastrar-form-input" placeholder="">
-		</div>
-	</div>
+	  <div class="cadastrar-form-div">
+		   <label for="inputMaterial">Material</label>
+		   <input type="text" name="material" id="inputMaterial" class="cadastrar-form-input" placeholder="">
+	  </div>
+ 	</div>
 
 	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
 		<input id="cadastrarButton" type="submit" value="Cadastrar">

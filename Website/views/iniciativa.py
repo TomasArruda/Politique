@@ -3,7 +3,6 @@ from django.shortcuts import render
 from Website.models import Iniciativa
 from Website.forms import IniciativaForm
 
-
 def IniciativaView(request):
     query = Iniciativa.objects.order_by('nome')
     #context = RequestContext(request, {'latest_question_list': latest_question_list,})

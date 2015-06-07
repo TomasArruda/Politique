@@ -8,7 +8,7 @@ import os
 
 class Setor(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
-	Permissao = models.CharField(max_length=150, blank=False, default='', null=False)
+	permissao = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.nome

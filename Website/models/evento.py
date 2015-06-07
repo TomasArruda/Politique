@@ -10,7 +10,7 @@ class Evento(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
 	data = models.DateField(auto_now=False, null=False, blank=False)
 	feedback = models.CharField(max_length=500, blank=False, default='', null=False)
+	tipoEvento = models.CharField(max_length=1, blank=False,default='0',null=False)
 
-	
 	class  Meta:
 		ordering = ('nome',)
