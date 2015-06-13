@@ -9,3 +9,6 @@ class CustomUser(AbstractUser):
 	setor = models.ForeignKey('Setor',null=True)
 
 	USERNAME_FIELD = 'username'
+
+	def __str__(self):
+		return self.nome

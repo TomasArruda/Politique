@@ -4,6 +4,7 @@ from setor import RemoverSetorView
 from setor import CadastrarSetorView
 from evento import EventoView
 from evento import CadastrarEventoView
+from evento import ConsultarEventoView
 from telefone import TelefoneView
 from financiamento import FinanciamentoView
 from iniciativa import IniciativaView

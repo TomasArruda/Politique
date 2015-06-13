@@ -12,3 +12,6 @@ def cadastrarMembroView(request):
 
     return render(request, 'cadastrarmembro.html', {"form": user_form})
 
+def ConsultarMembroView(request):
+	membros = CustomUser.objects.filter().order_by('username')
+	return render(request, 'consultarMembro.html', {'membros': membros})

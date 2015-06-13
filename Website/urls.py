@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^CadastrarEmpresa$', views.CadastrarEmpresaView, name='CadastrarEmpresa'),
     url(r'^Evento$', views.EventoView, name='Evento'),
     url(r'^CadastrarEvento$', views.CadastrarEventoView, name='CadastrarEvento'),
+    url(r'^ConsultarEvento$', views.ConsultarEventoView, name='ConsultarEvento'),
     url(r'^EventoInstitucional$', views.EventoInstitucionalView, name='EventoInstitucional'),    
     url(r'^Financiamento$', views.FinanciamentoView, name='Financiamento'),
     url(r'^Iniciativa$', views.IniciativaView, name='Iniciativa'),

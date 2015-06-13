@@ -19,3 +19,7 @@ def CadastrarIniciativaView(request):
 
 def EditarIniciativaView(request):
 	return render(request, 'editarIniciativa.html')
+
+def ConsultarIniciativaView(request):
+	iniciativas = Iniciativa.objects.filter().order_by('nome')
+	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas})

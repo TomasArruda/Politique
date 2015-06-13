@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from Website.models import Evento
+from Website.models import Evento, CapacitacaoInterna, CapacitacaoExterna, EventoInstitucional
 from Website.forms import CapacitacaoInternaForm
 from Website.forms import CapacitacaoExternaForm
 from Website.forms import EventoInstitucionalForm
@@ -47,3 +47,16 @@ def CadastrarEventoView(request):
 		form = Evento(None)
 		
 	return render(request, 'cadastrarEvento.html', {"form":form})
+
+def ConsultarEventoView(request):
+	eventos = Evento.objects.filter().order_by('nome')
+	capacitacoesInternas = CapacitacaoInterna.objects.filter().order_by('nome')
+	capacitacoesExternas = CapacitacaoExterna.objects.filter().order_by('nome')
+	eventosInstitucionais = EventoInstitucional.objects.filter().order_by('nome')
+	return render(request, 'consultarEvento.html', {'eventos': eventos, 'capacitacoesInternas': capacitacoesInternas, 'capacitacoesExternas': capacitacoesExternas, 'eventosInstitucionais': eventosInstitucionais})
+
+
+
+
+
+

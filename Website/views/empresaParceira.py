@@ -16,3 +16,7 @@ def CadastrarEmpresaView(request):
 		form.save()
 
 	return render(request, 'cadastrarEmpresa.html', { "form" : form })
+
+def ConsultarEEmpresaView(request):
+	empresas = EmpresaParceira.objects.filter().order_by('nome')
+	return render(request, 'consultarEmpresa.html', {'empresas': empresas})
