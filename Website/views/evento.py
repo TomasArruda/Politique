@@ -62,7 +62,3 @@ def RemoverEventoView(request, id):
     obj = Evento.objects.get(pk=id)
     obj.delete()
     return render(request, 'consultarEvento.html')
-
-
-
-

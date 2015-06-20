@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^RemoverSetor$', views.RemoverSetorView, name='RemoverSetor'),
     url(r'^Telefone$', views.TelefoneView, name='Telefone'),
     url(r'^TipoParceria$', views.TipoParceriaView, name='TipoParceria'),
-    url(r'^Autenticacao$', views.LoginView, name='Autenticacao'),   
+    url(r'^Login$', views.LoginView, name='Login'),
+    url(r'^Logout$', views.LogoutView, name='Logout')
 ]

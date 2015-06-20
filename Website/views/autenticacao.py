@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponse
 
 def LogoutView(request):
     logout(request)
-    return redirect('/Website')
+    return HttpResponseRedirect('/Website')
 
 def LoginView(request):
     username = request.POST['username']
@@ -17,4 +19,4 @@ def LoginView(request):
         else:
             return HttpResponseRedirect('/Website')
     else:
-        return HttpResponseRedirect('/Website/CadastrarIniciativa')
+        return HttpResponseRedirect('/Website')
