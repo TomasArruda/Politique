@@ -1,5 +1,6 @@
 .atualizar-form-div {
 	margin-bottom: 10px;
+	overflow:auto;
 }
 
 .atualizar-form-input {
@@ -31,4 +32,14 @@
 #atualizarButton:hover {
 	cursor: pointer;
 	background-color: rgba(200,200,200,0.8);
+}
+
+table {
+
+	border-collapse:collapse;
+}
+
+td, th {
+	border:1px solid black;
+	padding:2px 4px;
 }

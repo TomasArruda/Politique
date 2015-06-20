@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main-title %}
-Consultar Iniciativas
+Consultar Empresas
 {% endblock %}
 
 {% block body %}
@@ -23,7 +23,7 @@ Consultar Iniciativas
 </div>
 {% endif %}
 
-<form id="consultarIniciativa-form" action="{%url 'ConsultarIniciativa'%}" method="post"> <!-- action correto? -->
+<form id="consultarIniciativa-form" action="{%url 'ConsultarEmpresa'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
 	<div class="atualizar-form-div">
@@ -38,14 +38,14 @@ Consultar Iniciativas
 	<div class="atualizar-form-div">
 				<table>
 			<tr>
-				{% for instance in iniciativas|slice:"1" %}
+				{% for instance in empresas|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<th>{{field}}</th>
 				{% endfor %}
 				{% endfor %}
 			</tr>
 
-		{% for instance in iniciativas %}
+		{% for instance in empresas %}
 		<tr>
 		{% for field, value in instance.fields.items %}
 		<td>{{ value }}</td>
