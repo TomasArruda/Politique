@@ -1,0 +1,127 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Consultar Evento
+{% endblock %}
+
+{% block body %}
+
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+		{% for field in form %}
+		<li> {{ field.name }} {{ field.errors|striptags }}</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+<form id="consultarIniciativa-form" action="{%url 'ConsultarIniciativa'%}" method="post"> <!-- action correto? -->
+	{% csrf_token %}
+
+	<div class="atualizar-form-div">
+		<label for="inputIniciativasVar">Variável</label><br />
+	</div>
+
+	<div class="atualizar-form-div">
+		<label for="inputNome">Pesquisa</label>
+		<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+				<table>
+			<tr>
+				{% for instance in eventos|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+		{% for instance in eventos %}
+		<tr>
+		{% for field, value in instance.fields.items %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+		{% endfor %}
+	</table>
+	</div>
+
+		<div class="atualizar-form-div">
+				<table>
+			<tr>
+				{% for instance in capacitacoesInternas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+		{% for instance in capacitacoesInternas %}
+		<tr>
+		{% for field, value in instance.fields.items %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+		{% endfor %}
+	</table>
+	</div>
+
+		<div class="atualizar-form-div">
+				<table>
+			<tr>
+				{% for instance in capacitacoesExternas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+		{% for instance in capacitacoesExternas %}
+		<tr>
+		{% for field, value in instance.fields.items %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+		{% endfor %}
+	</table>
+	</div>
+
+		<div class="atualizar-form-div">
+				<table>
+			<tr>
+				{% for instance in eventosInstitucionais|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+		{% for instance in eventosInstitucionais %}
+		<tr>
+		{% for field, value in instance.fields.items %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+		{% endfor %}
+	</table>
+	</div>
+
+	<div id="atualizarButtonDiv" class="atualizar-form-div">
+		<input id="atualizarButton" type="submit" value="Consultar">
+	</div>
+
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
