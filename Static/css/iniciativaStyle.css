@@ -11,6 +11,10 @@
 	margin-top: 5px;
 }
 
+#inputRealizada {
+	display: block;
+}
+
 #cadastrarButtonDiv {
 	margin: 0;
 	margin-right: 25px;
