@@ -23,7 +23,7 @@ Consultar Empresas
 </div>
 {% endif %}
 
-<form id="consultarIniciativa-form" action="{%url 'ConsultarIniciativa'%}" method="post"> <!-- action correto? -->
+<form id="consultarIniciativa-form" action="{%url 'ConsultarEmpresa'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
 	<div class="atualizar-form-div">
@@ -34,7 +34,7 @@ Consultar Empresas
 		<label for="inputNome">Pesquisa</label>
 		<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
 	</div>
-	
+
 	<div class="atualizar-form-div">
 				<table>
 			<tr>
