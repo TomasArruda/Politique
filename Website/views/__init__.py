@@ -24,3 +24,5 @@ from eventoInstitucional import EventoInstitucionalView
 from home import homeView
 from atualizarPerfil import atualizarPerfilView
 from perfil import perfilView
+from autenticacao import LoginView
+from autenticacao import LogoutView

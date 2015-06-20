@@ -20,3 +20,8 @@ def CadastrarEmpresaView(request):
 def ConsultarEmpresaView(request):
 	empresas = EmpresaParceira.objects.filter().order_by('nome')
 	return render(request, 'consultarEmpresa.html', {'empresas': empresas})
+
+def RemoverEmpresaView(request, id):
+    obj = EmpresaParceira.objects.get(pk=id)
+    obj.delete()
+    return render(request, 'consultarEmpresa.html')

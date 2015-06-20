@@ -1,11 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 
-def logoutView(request):
+def LogoutView(request):
     logout(request)
     return redirect('/Website')
 
-def loginView(request):
+def LoginView(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)

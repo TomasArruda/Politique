@@ -15,3 +15,8 @@ def cadastrarMembroView(request):
 def ConsultarMembroView(request):
 	membros = CustomUser.objects.filter().order_by('username')
 	return render(request, 'consultarMembro.html', {'membros': membros})
+
+def RemoverMembroView(request, id):
+    obj = CystomUser.objects.get(pk=id)
+    obj.delete()
+    return render(request, 'consultarMembro.html')
