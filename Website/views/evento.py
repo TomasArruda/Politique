@@ -5,12 +5,14 @@ from Website.forms import CapacitacaoInternaForm
 from Website.forms import CapacitacaoExternaForm
 from Website.forms import EventoInstitucionalForm
 from Website.forms import EventoForm
+from django.contrib.auth.decorators import login_required
 
 def EventoView(request):
     query = Evento.objects.order_by('nome')
     #context = RequestContext(request, {'latest_question_list': latest_question_list,})
     #render(request, '/membros.html', context)
 
+@login_required(login_url='/Website')
 def CadastrarEventoView(request):
 
 	if request.method == 'POST':
@@ -48,6 +50,7 @@ def CadastrarEventoView(request):
 		
 	return render(request, 'cadastrarEvento.html', {"form":form})
 
+@login_required(login_url='/Website')
 def ConsultarEventoView(request):
 	eventos = Evento.objects.filter().order_by('nome')
 	capacitacoesInternas = CapacitacaoInterna.objects.filter().order_by('nome')

@@ -17,4 +17,4 @@ def LoginView(request):
         else:
             return HttpResponseRedirect('/Website')
     else:
-        return HttpResponseRedirect('/Website')
+        return HttpResponseRedirect('/Website/CadastrarIniciativa')
