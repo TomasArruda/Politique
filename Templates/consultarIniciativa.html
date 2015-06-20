@@ -38,6 +38,13 @@ Consultar Iniciativas
 	<div class="atualizar-form-div">
 				<table>
 			<tr>
+				{% for instance in iniciativas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
 		{% for instance in iniciativas %}
 		<tr>
 		{% for field, value in instance.fields.items %}

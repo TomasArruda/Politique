@@ -1,5 +1,6 @@
 .atualizar-form-div {
 	margin-bottom: 10px;
+	overflow:auto;
 }
 
 .atualizar-form-input {
