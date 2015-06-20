@@ -28,12 +28,24 @@ Consultar Iniciativas
 
 	<div class="atualizar-form-div">
 		<label for="inputIniciativasVar">Variável</label><br />
-		{{iniciativas}}
 	</div>
 
 	<div class="atualizar-form-div">
 		<label for="inputNome">Pesquisa</label>
 		<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
+	</div>
+
+	<div class="atualizar-form-div">
+				<table border="1" style="border-collapse:collapse;">
+			<tr>
+		{% for instance in iniciativas %}
+		<tr>
+		{% for field, value in instance.fields.items %}
+		<td>{{ value }}</td>
+		{% endfor %}
+	</tr>
+		{% endfor %}
+	</table>
 	</div>
 
 	<div id="atualizarButtonDiv" class="atualizar-form-div">
