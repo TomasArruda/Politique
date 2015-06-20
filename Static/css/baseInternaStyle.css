@@ -1,19 +1,56 @@
 .navbar {
-	height: 50px;
+	height: 70px;
 	background: rgba(255,255,255,0.9);
 	margin-bottom: 30px;
 	border-bottom: 2px solid rgb(0,100,109);
 }
 
+#navbar-img {
+	height: 60px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+#img-link {
+	float: left;
+}
+
+#welcome-navbar {
+	float: right;
+	margin-top: 28px;
+	text-decoration: none;
+	color: rgb(0,100,109);
+}
+
+#welcome-navbar:hover {
+	color: rgb(0,147,160);
+}
+
+#logoutBtn {
+	padding: 0;
+	margin-top: 28px;
+	margin-left: 10px;
+	border: none;
+	background: none;
+	overflow: auto;
+	float: right;
+	cursor: pointer;
+}
+
+#logoutImg {
+	height: 16px;
+}
+
 /*--- Menu Lateral ---*/
 
 .menu {
-	float:left;
-	width:25%;
-	background:rgba(0,138,152,0.8);
-	text-align:center;
-	font-size:1.1em;
+	float: left;
+	width: 25%;
+	background: rgba(48, 141, 132, 0.9);
+	text-align: center;
+	font-size: 14px;
 	border-radius: 10px;
+	margin-bottom: 30px;
 }
 
 .menu ul {
@@ -22,16 +59,22 @@
 	margin:0;
 }
 
-.first{
+#first{
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
+	background: rgb(29,84,79);
+	border-top: 2px solid rgb(42,122,114);
+	border-right: 2px solid rgb(42,122,114);
+	border-left: 2px solid rgb(42,122,114);
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .menu ul li {
 	padding:15px 0;
-	border-top:2px solid rgb(0,100,109);
-	border-right:2px solid rgb(0,100,109);
-	border-left:2px solid rgb(0,100,109);
+	border-top:2px solid rgb(54,160,150);
+	border-right:2px solid rgb(54,160,150);
+	border-left:2px solid rgb(54,160,150);
 	color:white;
 	cursor:pointer;
 }
@@ -42,7 +85,7 @@
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
-	background:orange;
+	background:rgba(239, 133, 11,0.8);
 }
 
 .menu a {
@@ -52,14 +95,17 @@
 
 .hdn {
 	display:none;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .menu .hdn li {
 	padding:10px 0;
-	border-top:2px solid rgb(0,100,109);
-	border-right:2px solid rgb(0,100,109);
-	border-left:2px solid rgb(0,100,109);
+	border-top:2px solid rgb(54,160,150);
+	border-right:2px solid rgb(54,160,150);
+	border-left:2px solid rgb(54,160,150);
 	color: rgb(0,100,109);
+	background: rgba(255,255,255,0.9);
 }
 
 .menu .hdn {
@@ -68,7 +114,7 @@
 }
 
 .last {
-	border-bottom: 2px solid rgb(0,100,109);
+	border-bottom: 2px solid rgb(54,160,150);
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -77,21 +123,22 @@
 
 /*--- Tela Principal ---*/
 .main {
-	width:70%;
-	min-height:50%;
-	background: rgba(255,255,255,0.9);
+	width: 750px;
+	min-width:60%;
+	background: rgba(255,255,255,0.8);
 	float: right;
-	border:2px solid rgb(0,100,109);
+	border: 2px solid rgb(0,100,109);
 	border-radius: 10px;
+	margin-bottom: 30px;
+	padding: 20px;
 }
 
 .wrap-txt {
-	margin:30px;
 	color:rgb(0,100,109);
 }
 
-.menu {
-	margin-bottom:60px;
+.main-title {
+	margin-top: 0;
 }
 
 /*-----------------------*/

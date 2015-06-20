@@ -14,25 +14,27 @@
 		<img id="login-img" src="{% static 'img/politique-logo.jpg' %}">
 		
 		<!-- Adicionar form -->
-		<div>
-			<div class="login-form-div">
-				<label for="inputUsername">Username</label>
-				<input type="text" name="username" id="inputUsername" class="login-form-input" placeholder="Digite o seu nome de usuário">
-			</div>
+		<form id="login-form" action="{% url 'home' %}" method="post">
+			<div>
+				<div class="login-form-div">
+					<label for="inputUsername">Username</label>
+					<input type="text" name="username" id="inputUsername" class="login-form-input" placeholder="Digite o seu nome de usuário">
+				</div>
 
-			<div class="login-form-div">
-				<label for="inputPassword">Senha</label>
-				<input type="text" name="password" id="inputPassword" class="login-form-input" placeholder="Digite a sua senha">
-			</div>
+				<div class="login-form-div">
+					<label for="inputPassword">Senha</label>
+					<input type="password" name="password" id="inputPassword" class="login-form-input" placeholder="Digite a sua senha">
+				</div>
 
-			<div id="loginButtonDiv" class="login-form-div">
-				<span id="loginButton" onclick="#">Entrar</span>
-			</div>
+				<div id="loginButtonDiv" class="login-form-div">
+					<input id="loginButton" type="submit" value="Entrar">
+				</div>
 
-			<div id="forgotPasswordDiv" class="login-form-div">
-				<a id="forgotPassword" href="#">Esqueci minha senha!</a>
+				<div id="forgotPasswordDiv" class="login-form-div">
+					<a id="forgotPassword" href="#">Esqueci minha senha!</a>
+				</div>
 			</div>
-		</div>
+		</form>
 
 	</div>
 </div>
