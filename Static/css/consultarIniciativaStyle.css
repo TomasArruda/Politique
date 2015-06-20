@@ -1,0 +1,34 @@
+.atualizar-form-div {
+	margin-bottom: 10px;
+}
+
+.atualizar-form-input {
+	display: block;
+
+	padding: 2.5px;
+	width: 100%;
+
+	border-radius: 4px;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+#atualizarButtonDiv {
+	margin: 0;
+	margin-right: 0;
+	margin-top: 10px;
+	height: 45px;
+	float: right;
+}
+
+#atualizarButton {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: rgba(200,200,200,0.5);
+}
+
+#atualizarButton:hover {
+	cursor: pointer;
+	background-color: rgba(200,200,200,0.8);
+}
