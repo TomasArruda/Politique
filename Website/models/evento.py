@@ -12,5 +12,8 @@ class Evento(models.Model):
 	feedback = models.CharField(max_length=500, blank=False, default='', null=False)
 	tipoEvento = models.CharField(max_length=1, blank=False,default='0',null=False)
 
+	def __str__(self):
+		return self.nome
+
 	class  Meta:
 		ordering = ('nome',)

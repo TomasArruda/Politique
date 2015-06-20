@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from Website.models import Iniciativa
 from Website.forms import IniciativaForm
+from django.core import serializers
 
 def IniciativaView(request):
     query = Iniciativa.objects.order_by('nome')
@@ -19,3 +20,9 @@ def CadastrarIniciativaView(request):
 
 def EditarIniciativaView(request):
 	return render(request, 'editarIniciativa.html')
+
+def ConsultarIniciativaView(request):
+	#iniciativas = Iniciativa.objects.filter().order_by('nome')
+	iniciativas = serializers.serialize( "python", Iniciativa.objects.filter().order_by('nome') )
+	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas})
+

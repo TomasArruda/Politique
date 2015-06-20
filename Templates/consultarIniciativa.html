@@ -1,0 +1,176 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Consultar Iniciativas
+{% endblock %}
+
+{% block body %}
+
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+		{% for field in form %}
+		<li> {{ field.name }} {{ field.errors|striptags }}</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+<!-- Modal editar Iniciativa -->
+<div id="modalEditarIniciativa" hidden>
+
+	<h1>Editar Iniciativa</h1>
+
+	<form action="#" method="POST">
+		{% csrf_token %}
+		<div class="col1">
+			<div class="editar-form-div">
+				<label for="inputNome">Nome</label>
+				<input type="text" name="nome" id="inputNome" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputData">Data</label>
+				<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputTipoMembro">Tipo de Membro</label>
+				<input type="text" name="tipoMembro" id="tipoMembro" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputPublico">Público alvo:</label>
+				<input type="text" name="publicoAlvo" id="inputPublico" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputDuracao">Duração</label><br />
+				<input type="text" name="duracao" id="inputDuracao" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputQuestoes">Questões chaves</label>
+				<input type="text" name="questoesChaves" id="inputQuestoes" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputArea">Área de atuação</label>
+				<input type="text" name="areaAtuacao" id="inputArea" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputMissao">Missão</label>
+				<input type="text" name="missao" id="inputMissao" class="editar-form-input" placeholder="">
+			</div>
+		</div>
+
+
+		<div class="col2">
+			<div class="editar-form-div">
+				<label for="inputAnoFund">Ano de fundação</label>
+				<input type="number" min="0" value="1" name="anoFundacao" id="inputAnoFund" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputWebsite">Website</label>
+				<input type="text" name="website" id="inputWebsite" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputParceiros">Parceiros</label>
+				<input type="text" name="parceiros" id="inputParceiros" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputProgramas">Principais Programas</label>
+				<input type="text" name="principaisProgramas" id="inputProgramas" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputApoio">Apoio</label>
+				<input type="text" name="apoio" id="inputApoio" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="inputRealizada">Realizada</label>
+				<input type="checkbox" name="realizada" id="inputRealizada" class="editar-form-input" placeholder="">
+			</div>
+			<div class="editar-form-div">
+				<label for="inputPercepcao">Percepção de Presença</label>
+				<input type="text" name="percepcaoPresenca" id="inputPercepcao" class="editar-form-input" placeholder="">
+			</div>
+			<div class="editar-form-div">
+				<label for="inputContato">Contato</label>
+				<input type="text" name="contato" id="inputContato" class="editar-form-input" placeholder="">
+			</div>
+
+			<div class="editar-form-div">
+				<label for="membro">Membro Responsável</label><br />
+				{{ form.membro }}
+			</div>
+		</div>
+
+		<div id="editarButtonDiv" class="editar-form-div">
+			<input id="editarButton" type="submit" value="Editar">
+		</div>
+	</form>				
+</div><!-- /.modal -->
+
+<form id="consultarIniciativa-form" action="{%url 'ConsultarIniciativa'%}" method="post"> <!-- action correto? -->
+	{% csrf_token %}
+
+	<div class="consultar-form-div">
+		<label for="inputIniciativasVar">Variável</label><br />
+	</div>
+
+	<div class="consultar-form-div">
+		<label for="inputNome">Pesquisa</label>
+		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+	</div>
+
+	<div class="consultar-form-div">
+		<table id="tabela">
+			<tr>
+				{% for instance in iniciativas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+			{% for instance in iniciativas %}
+			<tr class="tabela-linha">
+				{% for field, value in instance.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}				
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
+		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Iniciativa</a></li>
+		<li>Remover Iniciativa</li>
+	</ul>
+
+	<div id="consultarButtonDiv" class="consultar-form-div">
+		<input id="consultarButton" type="submit" value="Consultar">
+	</div>
+
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static 'js/consultarIniciativaJS.js' %}"></script>
+
+{% endblock %}

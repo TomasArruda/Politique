@@ -10,3 +10,5 @@ import os
 class CapacitacaoExterna(Evento):
 	custo = models.CharField(max_length=100, blank=False, default='', null=False)
 	palestrante = models.CharField(max_length=100, blank=False, default='', null=False)
+	def __str__(self):
+		return self.nome

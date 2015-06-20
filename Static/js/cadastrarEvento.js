@@ -5,7 +5,6 @@ $(document).ready(function(){
 	 var divTipoElemento = $('#tipoEvento');
 
 	$("#cmbBoxEvento").change(function(){
-
 		  var tipoEventoCmbBox = $('#cmbBoxEvento');
 		  var tipoEventoNome = $('#cmbBoxEvento option:selected').text();
 
@@ -18,5 +17,4 @@ $(document).ready(function(){
 		  }
  	
  	})
-
-})	
+})

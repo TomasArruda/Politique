@@ -25,6 +25,7 @@ Setores
 
 <div id="cadastrarSetor">
 	<h2 id="cadastrarTitulo">Cadastrar setor</h2>	
+
 	<form id = "cadastrarSetor" action ="{%url 'CadastrarSetor'%}" method="post">
 
 		{% csrf_token %}
@@ -43,10 +44,11 @@ Setores
 		</div>
 
 		<div id="cadastrarSetorDiv" class="buttonDiv cadastrar-form-div">
-			<input id="cadastrarButton" type="submit" value="Cadastrar">
+			<input id="cadastrarButton" type="submit" value="Cadastrar" onclick="clicked();">
 		</div>
 
 	</form> 
+
 </div>
 
 <div id="removerSetor">
@@ -63,7 +65,6 @@ Setores
 		<div id="removerSetorDiv" class="buttonDiv cadastrar-form-div">
 			<input id="removerButton" type="submit" value="Remover">
 		</div>
-
 	</form>
 	
 </div>

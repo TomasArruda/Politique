@@ -12,3 +12,6 @@ class EventoInstitucional(Evento):
 	motivoPatrocinio = models.CharField(max_length=500, blank=False, default='', null=False)
 
 	empresasParceiras = models.ManyToManyField('EmpresaParceira')
+
+	def __str__(self):
+		return self.nome
