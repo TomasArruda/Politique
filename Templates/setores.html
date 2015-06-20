@@ -12,12 +12,12 @@ Setores
 
 {% block body %}
 
-<div class="setorWrap">
+<div id="cadastrarSetor">
+	<h2 id="cadastrarTitulo">Cadastrar setor</h2>
+	
+	<form id = "cadastrarSetor" action ="{%url 'CadastrarSetor'%}" method="post">
 
-	<div class="cadastrarSetor">
-		<h2>Cadastrar setor</h2>
-
-
+		{% csrf_token %}
 		<div class="cadastrar-form-div">
 			<label for="inputNome">Nome</label>
 			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
@@ -25,32 +25,37 @@ Setores
 
 		<div class="cadastrar-form-div">
 			<label for="inputPermissao">Permissão</label><br />
-			<select>
-				<option value="p&d">Editar e Remover</option>
-				<option value="rh">Editar</option>
-				<option value="rh">Ler</option>
+			<select name="permissao">
+				<option value="1">Editar e Remover</option>
+				<option value="2">Editar</option>
+				<option value="3">Visualizar</option>
 			</select>
 		</div>
 
-		<div class="buttonDiv cadastrar-form-div">
-			<span id="removerButton" class="button" onclick="#">Cadastrar</span>
+		<div id="cadastrarSetorDiv" class="buttonDiv cadastrar-form-div">
+			<input id="cadastrarButton" type="submit" value="Cadastrar" onclick="clicked();">
 		</div>
-	</div>
 
-	<div class="removerSetor">
-	<h2>Remover setor</h2>
-
-		<select>
-			<option value="p&d">P&D</option>
-			<option value="rh">RH</option>
-		</select>
-		<div class="buttonDiv cadastrar-form-div">
-			<span id="removerButton" class="button" onclick="#">Remover</span>
-		</div>
-	</div>
+	</form> 
 
 </div>
 
+<div id="removerSetor">
+
+	<h2 id="removerTitulo">Remover setor</h2>
+	
+	<form id = "removerSetor" action ="{%url 'RemoverSetor'%}" method="post">
+
+		<label for="inputSetor">Setor</label><br/>
+		{{ form.setor }}
+
+		<div id="removerSetorDiv" class="buttonDiv cadastrar-form-div">
+			<input id="removerButton" type="submit" value="Remover">
+		</div>
+
+	</form>
+	
+</div>
 {% endblock %}
 
 {% block scripts %}

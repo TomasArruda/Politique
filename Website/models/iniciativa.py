@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 import binascii
 import os
+from customuser import CustomUser
 
 class Iniciativa(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
@@ -15,15 +16,20 @@ class Iniciativa(models.Model):
 	duracao = models.CharField(max_length=100, blank=False, default='', null=False)
 	questoesChaves = models.CharField(max_length=500, blank=False, default='', null=False)
 	areaAtuacao = models.CharField(max_length=100, blank=False, default='', null=False)
+	missao = models.CharField(max_length=150, blank=False, default='', null=False)
 	anoFundacao = models.IntegerField(default=0)
 	website = models.CharField(max_length=100, blank=False, default='', null=False)
 	parceiros = models.CharField(max_length=500, blank=False, default='', null=False)
 	principaisProgramas = models.CharField(max_length=500, blank=False, default='', null=False)
 	apoio = models.CharField(max_length=100, blank=False, default='', null=False)
+	realizada = models.BooleanField()
 	percepcaoPresenca = models.CharField(max_length=100, blank=False, default='', null=False)
-	Realizada = models.BooleanField(default=True)
+	contato = models.CharField(max_length=100, blank=False, default='', null=False)
 
-	membro = models.ForeignKey('Membro',default='', null=False, blank = False)
+	membro = models.ForeignKey(CustomUser,default='', null=True, blank = False)
 
+	def __str__(self):
+		return self.nome
+	
 	class  Meta:
 		ordering = ('nome',)

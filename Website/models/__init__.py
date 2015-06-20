@@ -1,4 +1,4 @@
-from membro import Membro
+from customuser import CustomUser
 from setor import Setor
 from evento import Evento
 from telefone import Telefone

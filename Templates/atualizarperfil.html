@@ -11,38 +11,39 @@ Atualizar Perfil
 {% endblock %}
 
 {% block body %}
+	<form id="atualizarMembro-form" action="" method="post"> 
+		<div class="atualizar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputNome">Nome</label>
-		<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputEmail">E-mail</label>
+			<input type="text" name="email" id="inputEmail" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputEmail">E-mail</label>
-		<input type="text" name="email" id="inputEmail" class="atualizar-form-input" placeholder="">
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputPassword">Senha</label>
+			<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputPassword">Senha</label>
-		<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputPassword">Telefone</label>
+			<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputPassword">Telefone</label>
-		<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
-	</div>
-
-	<div class="atualizar-form-div">
-		<label for="inputSetor">Setor</label><br />
-		<select>
-		  	<option value="p&d">P&D</option>
-		  	<option value="rh">RH</option>
-		</select>
-	</div>
-	
-	<div id="atualizarButtonDiv" class="atualizar-form-div">
-		<span id="atualizarButton" onclick="#">Atualizar</span>
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputSetor">Setor</label><br />
+			<select>
+			  	<option value="p&d">P&D</option>
+			  	<option value="rh">RH</option>
+			</select>
+		</div>
+		
+		<div id="atualizarButtonDiv" class="atualizar-form-div">
+			<input id="atualizarButton" type="submit" value="Atualizar">
+		</div>
+	</form>
 
 {% endblock %}
 

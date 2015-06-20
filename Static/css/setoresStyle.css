@@ -1,3 +1,17 @@
+form {
+	margin: 0;
+}
+
+#cadastrarSetor {
+	background: white;
+	min-width: 250px;
+	padding: 20px;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid rgb(0,100,109);
+	margin-right: 40px;
+}
+
 .cadastrar-form-div {
 	margin-bottom: 10px;
 }
@@ -5,7 +19,7 @@
 .cadastrar-form-input {
 	display: block;
 	padding: 2.5px;
-	/*width: 100%;*/
+	width: 100%;
 	border-radius: 4px;
 	font-size: 11px;
 	margin-top: 5px;
@@ -14,23 +28,25 @@
 .buttonDiv {
 	margin: 0;
 	margin-right: 0;
-	height: 45px;
 	margin-top:40px;
+	float: right;
 }
 
 .button {
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 5px;
+	height: 30px;
 	background-color: rgba(200,200,200,0.5);
 }
 
-#removerButton {
-	padding: 5px;
-	border: 1px solid black;
+#removerSetor {
+	background: white;
+	min-width: 250px;
+	padding: 20px;
+	float: left;
 	border-radius: 5px;
-	background-color: rgba(200,200,200,0.5);
-	margin-left:10px;
+	border: 1px solid rgb(0,100,109);
 }
 
 .button:hover {
@@ -38,23 +54,8 @@
 	background-color: rgba(200,200,200,0.8);
 }
 
-.removerSetor, .cadastrarSetor {
-	float:left;
+#cadastrarTitulo, #removerTitulo {
+	margin: 0;
+	margin-bottom: 10px;
 }
 
-.removerSetor {
-	margin-left:250px;
-}
-
-.setorWrap {
-	margin:0 auto;
-	overflow:hidden;
-	width:565px;
-}
-
-@media(max-width:1026px) {
-	.removerSetor, .cadastrarSetor {
-	float:none;
-	margin-left:0;
-}
-}

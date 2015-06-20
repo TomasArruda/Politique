@@ -1,12 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from Website.models import Membro
-
-
-def MembroView(request):
-    membros = Membro.objects.order_by('nome')
-    #context = RequestContext(request, {'latest_question_list': latest_question_list,})
-    #render(request, '/membros.html', context)
+from Website.models import Setor
+from Website.forms import CustomUserForm
 
 def cadastrarMembroView(request):
-	return render(request, 'cadastrarmembro.html')
+
+    user_form = CustomUserForm(request.POST or None)
+
+    if user_form.is_valid():
+        user_form.save()
+
+    return render(request, 'cadastrarmembro.html', {"form": user_form})
+
+def ConsultarMembroView(request):
+	membros = CustomUser.objects.filter().order_by('username')
+	return render(request, 'consultarMembro.html', {'membros': membros})

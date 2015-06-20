@@ -12,37 +12,49 @@ Cadastrar Membro
 
 {% block body %}
 
-	<div class="atualizar-form-div">
-		<label for="inputNome">Nome</label>
-		<input type="text" name="nome" id="inputNome" class="atualizar-form-input" placeholder="">
-	</div>
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
 
-	<div class="atualizar-form-div">
-		<label for="inputEmail">E-mail</label>
-		<input type="text" name="email" id="inputEmail" class="atualizar-form-input" placeholder="">
-	</div>
+	<form id="cadastrarMembro-form" action="{%url 'CadastrarMembro'%}" method="post">
+		{% csrf_token %}
+		<div class="atualizar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputPassword">Senha</label>
-		<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputEmail">E-mail</label>
+			<input type="text" name="username" id="inputEmail" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputTelefone">Telefones</label>
-		<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputPassword">Senha</label>
+			<input type="text" name="password" id="inputPassword" class="atualizar-form-input" placeholder="">
+		</div>
 
-	<div class="atualizar-form-div">
-		<label for="inputSetor">Setor</label><br />
-		<select>
-		  	<option value="p&d">P&D</option>
-		  	<option value="rh">RH</option>
-		</select>
-	</div>
-	
-	<div id="atualizarButtonDiv" class="atualizar-form-div">
-		<span id="atualizarButton" onclick="#">Cadastrar</span>
-	</div>
+		<div class="atualizar-form-div">
+			<label for="inputTelefone">Telefones</label>
+			<input type="text" name="telefone" id="inputTelefone" class="atualizar-form-input" placeholder="">
+		</div>
+
+		<div class="atualizar-form-div">
+			<label for="inputSetor">Setor</label><br />
+			{{ form.setor }}
+		</div>
+		
+		<div id="atualizarButtonDiv" class="atualizar-form-div">
+			<input id="atualizarButton" type="submit" value="Cadastrar">
+		</div>
+
+	</form>
 
 {% endblock %}
 

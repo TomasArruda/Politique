@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 import binascii
 import os
+from customuser import CustomUser
 
 class Financiamento(models.Model):
 	nome = models.CharField(max_length=100, blank=False, default='', null=False)
@@ -16,7 +17,10 @@ class Financiamento(models.Model):
 	instituicaoResponsavel = models.CharField(max_length=100, blank=False, default='', null=False)
 	vencedoresAnteriores = models.CharField(max_length=500, blank=False, default='', null=False)
 
-	membro = models.ForeignKey('Membro',default='', null=False, blank = False)
+	membro = models.ForeignKey(CustomUser,default='', null=False, blank = False)
+
+	def __str__(self):
+		return self.nome
 
 	class  Meta:
 		ordering = ('nome',)
