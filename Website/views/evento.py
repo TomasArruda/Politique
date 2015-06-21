@@ -6,12 +6,14 @@ from Website.forms import CapacitacaoExternaForm
 from Website.forms import EventoInstitucionalForm
 from Website.forms import EventoForm
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 def EventoView(request):
     query = Evento.objects.order_by('nome')
     #context = RequestContext(request, {'latest_question_list': latest_question_list,})
     #render(request, '/membros.html', context)
 
+@login_required(login_url='/Website')
 def CadastrarEventoView(request):
 
 	if request.method == 'POST':
@@ -49,6 +51,7 @@ def CadastrarEventoView(request):
 		
 	return render(request, 'cadastrarEvento.html', {"form":form})
 
+@login_required(login_url='/Website')
 def ConsultarEventoView(request):
 	
 	eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome') )
@@ -57,3 +60,8 @@ def ConsultarEventoView(request):
 	eventosInstitucionais = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome') )
 	return render(request, 'consultarEvento.html', {'eventos': eventos, 'capacitacoesInternas': capacitacoesInternas, 'capacitacoesExternas': capacitacoesExternas, 'eventosInstitucionais': eventosInstitucionais})
 
+
+def RemoverEventoView(request, id):
+    obj = Evento.objects.get(pk=id)
+    obj.delete()
+    return render(request, 'consultarEvento.html')
