@@ -11,6 +11,6 @@ class TipoParceria(models.Model):
 	
 	def __str__(self):
 		return self.nome
-	
+
 	class  Meta:
 		ordering = ('nome',)

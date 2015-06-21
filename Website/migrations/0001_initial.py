@@ -16,10 +16,35 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='CapacitacaoExterna',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('custo', models.CharField(default=b'', max_length=100)),
+                ('palestrante', models.CharField(default=b'', max_length=100)),
+            ],
+            options={
+                'ordering': ('evento',),
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='CapacitacaoInterna',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('data', models.DateField()),
+                ('material', models.CharField(default=b'', max_length=200)),
+            ],
+            options={
+                'ordering': ('evento',),
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='ContatoCapacitacao',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('contatos', models.CharField(default=b'', max_length=500)),
+                ('capacitacaoExterna', models.ForeignKey(default=b'', to='Website.CapacitacaoExterna')),
             ],
             options={
                 'ordering': ('id',),
@@ -59,7 +84,6 @@ class Migration(migrations.Migration):
                 ('nome', models.CharField(default=b'', max_length=100)),
                 ('data', models.DateField()),
                 ('feedback', models.CharField(default=b'', max_length=500)),
-                ('tipoEvento', models.CharField(default=b'0', max_length=1)),
             ],
             options={
                 'ordering': ('nome',),
@@ -67,37 +91,18 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='CapacitacaoInterna',
-            fields=[
-                ('evento_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='Website.Evento')),
-                ('material', models.CharField(default=b'', max_length=200)),
-            ],
-            options={
-            },
-            bases=('Website.evento',),
-        ),
-        migrations.CreateModel(
-            name='CapacitacaoExterna',
-            fields=[
-                ('evento_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='Website.Evento')),
-                ('custo', models.CharField(default=b'', max_length=100)),
-                ('palestrante', models.CharField(default=b'', max_length=100)),
-            ],
-            options={
-            },
-            bases=('Website.evento',),
-        ),
-        migrations.CreateModel(
             name='EventoInstitucional',
             fields=[
-                ('evento_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='Website.Evento')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('custo', models.CharField(default=b'', max_length=100)),
-                ('motivoPatrocinio', models.CharField(default=b'', max_length=500)),
+                ('mostivoPatrocinio', models.CharField(default=b'', max_length=500)),
                 ('empresasParceiras', models.ManyToManyField(to='Website.EmpresaParceira')),
+                ('evento', models.ForeignKey(default=b'', to='Website.Evento')),
             ],
             options={
+                'ordering': ('evento',),
             },
-            bases=('Website.evento',),
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Financiamento',
@@ -134,7 +139,7 @@ class Migration(migrations.Migration):
                 ('parceiros', models.CharField(default=b'', max_length=500)),
                 ('principaisProgramas', models.CharField(default=b'', max_length=500)),
                 ('apoio', models.CharField(default=b'', max_length=100)),
-                ('realizada', models.BooleanField()),
+                ('realizada', models.BooleanField(default=True)),
                 ('percepcaoPresenca', models.CharField(default=b'', max_length=100)),
                 ('contato', models.CharField(default=b'', max_length=100)),
             ],
@@ -148,7 +153,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nome', models.CharField(default=b'', max_length=100)),
-                ('permissao', models.IntegerField(default=0)),
+                ('Permissao', models.CharField(default=b'', max_length=150)),
             ],
             options={
                 'ordering': ('nome',),
@@ -210,12 +215,6 @@ class Migration(migrations.Migration):
             preserve_default=True,
         ),
         migrations.AddField(
-            model_name='iniciativa',
-            name='membro',
-            field=models.ForeignKey(default=b'', to=settings.AUTH_USER_MODEL, null=True),
-            preserve_default=True,
-        ),
-        migrations.AddField(
             model_name='financiamento',
             name='membro',
             field=models.ForeignKey(default=b'', to=settings.AUTH_USER_MODEL),
@@ -230,7 +229,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='empresaparceira',
             name='tipoParceria',
-            field=models.ForeignKey(default=b'', to='Website.TipoParceria', null=True),
+            field=models.ForeignKey(default=b'', to='Website.TipoParceria'),
             preserve_default=True,
         ),
         migrations.AddField(
@@ -240,9 +239,15 @@ class Migration(migrations.Migration):
             preserve_default=True,
         ),
         migrations.AddField(
-            model_name='contatocapacitacao',
-            name='capacitacaoExterna',
-            field=models.ForeignKey(default=b'', to='Website.CapacitacaoExterna'),
+            model_name='capacitacaointerna',
+            name='evento',
+            field=models.ForeignKey(default=b'', to='Website.Evento'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='capacitacaoexterna',
+            name='evento',
+            field=models.ForeignKey(default=b'', to='Website.Evento'),
             preserve_default=True,
         ),
     ]

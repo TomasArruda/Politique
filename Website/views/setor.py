@@ -9,15 +9,13 @@ def SetorView(request):
     return render(request, 'setores.html')
 
 def CadastrarSetorView(request):
-
 	form = SetorForm(request.POST or None)
 
 	if form.is_valid():
 		form.save()
-
+		
 	return render(request, 'setores.html', {"form":form})
 
 def RemoverSetorView(request):
 
 	return render(request, 'setores.html')
-
