@@ -12,9 +12,20 @@ Setores
 
 {% block body %}
 
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
 <div id="cadastrarSetor">
-	<h2 id="cadastrarTitulo">Cadastrar setor</h2>
-	
+	<h2 id="cadastrarTitulo">Cadastrar setor</h2>	
+
 	<form id = "cadastrarSetor" action ="{%url 'CadastrarSetor'%}" method="post">
 
 		{% csrf_token %}
@@ -46,13 +57,14 @@ Setores
 	
 	<form id = "removerSetor" action ="{%url 'RemoverSetor'%}" method="post">
 
-		<label for="inputSetor">Setor</label><br/>
-		{{ form.setor }}
+		<div class="cadastrar-form-div">
+			<label for="inputSetor">Setor</label><br/>
+			{{ form.setor }}
+		</div>
 
 		<div id="removerSetorDiv" class="buttonDiv cadastrar-form-div">
 			<input id="removerButton" type="submit" value="Remover">
 		</div>
-
 	</form>
 	
 </div>

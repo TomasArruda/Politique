@@ -1,7 +1,5 @@
-from Website.models import EventoInstitucional
-from Website.models import CapacitacaoInterna
-from Website.models import CapacitacaoExterna
-from Website.models import Evento
+from Website.models import Evento, EventoInstitucional, CapacitacaoExterna, CapacitacaoInterna
+
 from django import forms
 
 class EventoForm(forms.ModelForm):

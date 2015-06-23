@@ -1,9 +1,9 @@
-.atualizar-form-div {
+.consultar-form-div {
 	margin-bottom: 10px;
 	overflow:auto;
 }
 
-.atualizar-form-input {
+.consultar-form-input {
 	display: block;
 
 	padding: 2.5px;
@@ -14,7 +14,7 @@
 	margin-top: 5px;
 }
 
-#atualizarButtonDiv {
+#consultarButtonDiv {
 	margin: 0;
 	margin-right: 0;
 	margin-top: 10px;
@@ -22,24 +22,120 @@
 	float: right;
 }
 
-#atualizarButton {
+#consultarButton {
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 5px;
 	background-color: rgba(200,200,200,0.5);
 }
 
-#atualizarButton:hover {
+#consultarButton:hover {
 	cursor: pointer;
 	background-color: rgba(200,200,200,0.8);
 }
 
-table {
-
+#tabela {
 	border-collapse:collapse;
+	background: white;
 }
 
 td, th {
-	border:1px solid black;
+	border:1px solid rgb(54,160,150);
 	padding:2px 4px;
+}
+
+.tabela-linha:hover {
+	background: rgb(200,200,200);
+	cursor: pointer;
+}
+
+th {
+	background: rgb(29, 84, 79);
+	color: white;
+	padding: 10px 5px;
+}
+
+#dropdown {
+	background: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	list-style: none;
+	color: blue;
+	position: absolute;
+}
+
+#modalEditarIniciativa {
+	position: fixed;
+	top: 0;
+	margin-top: 30px;
+	padding: 10px 20px;
+	min-width: 450px;
+
+	border-radius: 5px;
+
+	background: white;
+	color: black;
+	border: 1px solid black;
+}
+
+#modalEditarIniciativa h1 {
+	background: rgb(29, 84, 79);
+	color: white;
+	margin: 0;
+	margin: -10px -20px;
+	margin-bottom: 5px;
+	font-size: 24px;
+	padding: 10px;
+}
+
+.editar-form-div {
+	margin-bottom: 10px;
+}
+
+.editar-form-input {
+	display: block;
+	padding: 2.5px;
+	width: 100%;
+	border-radius: 4px;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+#editarButtonDiv {
+	margin: 0;
+	margin-right: 25px;
+	margin-top: 25px;
+	height: 45px;
+	float: right;
+}
+
+#editarButton {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: rgba(200,200,200,0.5);
+}
+
+#editarButton:hover {
+	cursor: pointer;
+	background-color: rgba(200,200,200,0.8);
+}
+
+.col1 {
+	width:40%;
+	margin-right:20%;
+	float:left;
+}
+
+.col2 {
+	float:left;
+	width:40%;
+}
+
+@media (max-width:1000px) {
+	.col1, .col2 {
+		float:none;
+		width:100%;
+	}
 }

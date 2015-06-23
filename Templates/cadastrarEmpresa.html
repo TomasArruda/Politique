@@ -11,18 +11,6 @@ Cadastrar Empresa
 {% endblock %}
 
 {% block body %}
-
-<!-- {% if form.errors %}
-<div id="form-error">
-	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
-	<ul>
-	{% for field in form %}
-	<li> {{ field.name }} {{ field.errors|striptags }}</li>
-	{% endfor %}
-	</ul>
-</div>
-{% endif %} -->
-
 <form id="cadastrarEmpresa-form" action="{%url 'CadastrarEmpresa'%}" method="post">
 	{% csrf_token %}
 	<div class="cadastrar-form-div">
@@ -69,7 +57,11 @@ Cadastrar Empresa
 	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
 		<input id="cadastrarButton" type="submit" value="Cadastrar">
 	</div>
-	
+
+	<div class="atualizar-form-div">
+		<label for="inputParceria">Tipo de Parceira</label><br />
+		{{ form.tipoParceria }}
+	</div>
 </form>
 
 {% endblock %}

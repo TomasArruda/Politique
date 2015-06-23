@@ -17,3 +17,12 @@ class CustomUserForm(forms.ModelForm):
 	class Meta:
 		model = CustomUser
 		exclude = ('last_login','eventos', 'date_joined')
+
+	def save(self, commit=True):
+		# Save the provided password in hashed format
+		user = super(CustomUserForm, self).save(commit=False)
+		user.is_active=True
+		user.set_password(self.cleaned_data["password"])
+		if commit:
+			user.save()
+		return user

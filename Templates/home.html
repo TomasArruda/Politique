@@ -14,7 +14,8 @@
 		<img id="login-img" src="{% static 'img/politique-logo.jpg' %}">
 		
 		<!-- Adicionar form -->
-		<form id="login-form" action="{% url 'home' %}" method="post">
+		<form id="login-form" action="{% url 'Login' %}" method="post">
+			{% csrf_token %}
 			<div>
 				<div class="login-form-div">
 					<label for="inputUsername">Username</label>
