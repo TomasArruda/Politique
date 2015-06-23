@@ -7,7 +7,9 @@ from evento import EventoView
 from evento import CadastrarEventoView
 from evento import ConsultarEventoView
 from telefone import TelefoneView
-from financiamento import FinanciamentoView
+from financiamento import CadastrarFinanciamentoView
+from financiamento import ConsultarFinanciamentoView
+from financiamento import RemoverFinanciamentoView
 from iniciativa import IniciativaView
 from iniciativa import CadastrarIniciativaView
 from iniciativa import ConsultarIniciativaView

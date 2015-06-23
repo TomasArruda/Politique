@@ -21,9 +21,11 @@ def CadastrarEmpresaView(request):
 
 @login_required(login_url='/Website')
 def ConsultarEmpresaView(request):
+	#nome e ramo
 	empresas = serializers.serialize( "python", EmpresaParceira.objects.filter().order_by('nome') )
 	return render(request, 'consultarEmpresa.html', {'empresas': empresas})
 
+@login_required(login_url='/Website')
 def RemoverEmpresaView(request, id):
     obj = EmpresaParceira.objects.get(pk=id)
     obj.delete()

@@ -19,9 +19,11 @@ def cadastrarMembroView(request):
 
 @login_required(login_url='/Website')
 def ConsultarMembroView(request):
+    #nome e setor
     membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('username') )
     return render(request, 'consultarMembro.html', {'membros': membros})
 
+@login_required(login_url='/Website')
 def RemoverMembroView(request, id):
     obj = CystomUser.objects.get(pk=id)
     obj.delete()

@@ -29,6 +29,7 @@ def ConsultarIniciativaView(request):
 	iniciativas = serializers.serialize( "python", Iniciativa.objects.filter().order_by('nome') )
 	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas})
 
+@login_required(login_url='/Website')
 def RemoverIniciativaView(request, id):
 	obj = Iniciativa.objects.get(pk=id)
 	obj.delete()
