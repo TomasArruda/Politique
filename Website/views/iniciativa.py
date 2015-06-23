@@ -4,7 +4,6 @@ from Website.models import Iniciativa
 from Website.forms import IniciativaForm
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
->>>>>>> 843b42fc42b64cb7962c43ec6fb6dd1224b132e1
 
 def IniciativaView(request):
     query = Iniciativa.objects.order_by('nome')
