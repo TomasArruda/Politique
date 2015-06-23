@@ -27,7 +27,14 @@ Consultar Evento
 	{% csrf_token %}
 
 	<div class="atualizar-form-div">
-		<label for="inputIniciativasVar">Variável</label><br />
+		<label for="inputEventosVar">Variável</label><br />
+		<select name="inputEventosVar">
+			{% for instance in eventos|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<option value="{{field}}">{{field}}</option>
+				{% endfor %}
+				{% endfor %}
+		</select>
 	</div>
 
 	<div class="atualizar-form-div">

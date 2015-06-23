@@ -27,7 +27,14 @@ Consultar Empresas
 	{% csrf_token %}
 
 	<div class="atualizar-form-div">
-		<label for="inputIniciativasVar">Variável</label><br />
+		<label for="inputEmpresasVar">Variável</label><br />
+		<select name="inputEmpresasVar">
+			{% for instance in empresas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<option value="{{field}}">{{field}}</option>
+				{% endfor %}
+				{% endfor %}
+		</select>
 	</div>
 
 	<div class="atualizar-form-div">

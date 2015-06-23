@@ -60,7 +60,6 @@ def ConsultarEventoView(request):
 	eventosInstitucionais = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome') )
 	return render(request, 'consultarEvento.html', {'eventos': eventos, 'capacitacoesInternas': capacitacoesInternas, 'capacitacoesExternas': capacitacoesExternas, 'eventosInstitucionais': eventosInstitucionais})
 
-
 def RemoverEventoView(request, id):
     obj = Evento.objects.get(pk=id)
     obj.delete()

@@ -129,6 +129,13 @@ Consultar Iniciativas
 
 	<div class="consultar-form-div">
 		<label for="inputIniciativasVar">Variável</label><br />
+		<select name="inputIniciativasVar">
+			{% for instance in iniciativas|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<option value="{{field}}">{{field}}</option>
+				{% endfor %}
+				{% endfor %}
+		</select>
 	</div>
 
 	<div class="consultar-form-div">
