@@ -24,4 +24,5 @@ def CadastrarSetorView(request):
 @login_required(login_url='/Website')
 def RemoverSetorView(request):
 
-	return render(request, 'setores.html')
+	setores = serializers.serialize( "python", Setor.objects.filter().order_by('nome'), fields=('nome') )
+	return render(request, 'setores.html', {'setores': setores})

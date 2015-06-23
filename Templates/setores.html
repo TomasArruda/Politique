@@ -56,7 +56,7 @@ Setores
 	<h2 id="removerTitulo">Remover setor</h2>
 	
 	<form id = "removerSetor" action ="{%url 'RemoverSetor'%}" method="post">
-
+		{% csrf_token %}
 		<div class="cadastrar-form-div">
 			<label for="inputSetor">Setor</label><br/>
 			<select name="removeSetor">
