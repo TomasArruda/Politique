@@ -16,9 +16,9 @@ Setores
 <div id="form-error">
 	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
 	<ul>
-	{% for field in form %}
-	<li> {{ field.name }} {{ field.errors|striptags }}</li>
-	{% endfor %}
+		{% for field in form %}
+		<li> {{ field.name }} {{ field.errors|striptags }}</li>
+		{% endfor %}
 	</ul>
 </div>
 {% endif %}
@@ -59,7 +59,13 @@ Setores
 
 		<div class="cadastrar-form-div">
 			<label for="inputSetor">Setor</label><br/>
-			{{ form.setor }}
+			<select name="removeSetor">
+				{% for instance in setores %}
+				{% for field, value in instance.fields.items %}
+				<option value="{{value}}">{{ value }}</option>
+				{% endfor %}
+				{% endfor %}
+			</select>
 		</div>
 
 		<div id="removerSetorDiv" class="buttonDiv cadastrar-form-div">
