@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/consultarEmpresaStyle.css' %}">
 {% endblock %}
 
 {% block main-title %}
@@ -23,10 +23,58 @@ Consultar Empresas
 </div>
 {% endif %}
 
+<!-- Modal editar Empresa -->
+<div id="modalEditarEmpresa" hidden>
+
+	<h1>Editar Membro</h1>
+
+	<form action="#" method="POST">
+		{% csrf_token %}
+	<div class="editar-form-div">
+		<label for="inputNome">Nome</label>
+		<input type="text" name="nome" id="inputNome" class="editar-form-input" placeholder="">
+	</div>
+
+	<div class="editar-form-div">
+		<label for="inputRamo">Ramo de atuação</label>
+		<input type="text" name="ramoAtuacao" id="inputRamo" class="editar-form-input" placeholder="">
+	</div>
+
+	<div class="editar-form-div">
+		<label for="inputBackground">Background</label>
+		<input type="text" name="background" id="inputBackground" class="editar-form-input" placeholder="">
+	</div>
+
+	<div class="editar-form-div">
+		<label for="inputApoios">Apoios</label>
+		<input type="text" name="apoios" id="inputApoios" class="editar-form-input" placeholder="">
+	</div>
+
+	<div class="editar-form-div">
+		<label for="inputProposta">Proposta de apoio</label><br />
+		<input type="text" name="propostaApoio" id="inputProposta" class="editar-form-input" placeholder="">
+	</div>
+
+	<div class="editar-form-div">
+		<label for="tipoParceria">Tipo de Parceria</label><br />
+		{{ form.tipoParceria }}
+	</div>
+
+	<div class="editar-form-div">
+		<label for="iniciativas">Iniciativas</label><br />
+		{{ form.iniciativas }}
+	</div>
+
+		<div id="editarButtonDiv" class="editar-form-div">
+			<input id="editarButton" type="submit" value="Editar">
+		</div>
+	</form>				
+</div><!-- /.modal -->
+
 <form id="consultarIniciativa-form" action="{%url 'ConsultarEmpresa'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
-	<div class="atualizar-form-div">
+	<div class="consultar-form-div">
 		<label for="inputEmpresasVar">Variável</label><br />
 		<select name="inputEmpresasVar">
 			{% for instance in empresas|slice:"1" %}
@@ -37,13 +85,13 @@ Consultar Empresas
 		</select>
 	</div>
 
-	<div class="atualizar-form-div">
+	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
 	</div>
 
-	<div class="atualizar-form-div">
-				<table>
+	<div class="consultar-form-div">
+				<table id="tabela">
 			<tr>
 				{% for instance in empresas|slice:"1" %}
 				{% for field, value in instance.fields.items %}
@@ -53,7 +101,7 @@ Consultar Empresas
 			</tr>
 
 		{% for instance in empresas %}
-		<tr>
+		<tr class="tabela-linha">
 		{% for field, value in instance.fields.items %}
 		<td>{{ value }}</td>
 		{% endfor %}
@@ -62,8 +110,13 @@ Consultar Empresas
 	</table>
 	</div>
 
-	<div id="atualizarButtonDiv" class="atualizar-form-div">
-		<input id="atualizarButton" type="submit" value="Consultar">
+	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
+		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Empresa</a></li>
+		<li>Remover Empresa</li>
+	</ul>
+
+	<div id="consultarButtonDiv" class="consultar-form-div">
+		<input id="consultarButton" type="submit" value="Consultar">
 	</div>
 
 </form>
@@ -71,4 +124,7 @@ Consultar Empresas
 {% endblock %}
 
 {% block scripts %}
+
+<script src="{% static 'js/consultarEmpresaJS.js' %}"></script>
+
 {% endblock %}
