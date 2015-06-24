@@ -1,0 +1,81 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/iniciativaStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Cadastrar Financiamento
+{% endblock %}
+
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+	{% for field in form %}
+	<li> {{ field.name }} {{ field.errors|striptags }}</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+{% block body %}
+<form id="cadastrarFinanciamento-form" action="{%url 'CadastrarFinanciamento'%}" method="post">
+	{% csrf_token %}
+
+		<div class="cadastrar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputPublico">Processo</label>
+			<input type="text" name="processo" id="inputProcesso" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputDuracao">Tema</label><br />
+			<input type="text" name="tema" id="inputTema" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputQuestoes">Projetos</label>
+			<input type="text" name="projetos" id="inputProjetos" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputArea">Valor</label>
+			<input type="text" name="valor" id="inputValor" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputMissao">Prazos</label>
+			<input type="text" name="prazos" id="inputPrazos" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputAnoFund">Instituição Responsável</label>
+			<input type="text" name="institResponsavel" id="inputInstitResponsavel" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="cadastrar-form-div">
+			<label for="inputWebsite">Vencedores Anteriores</label>
+			<input type="text" name="vencedores" id="inputVencedores" class="cadastrar-form-input" placeholder="">
+		</div>
+
+		<div class="atualizar-form-div">
+			<label for="membro">Membro Responsável</label><br />
+			{{ form.membro }}
+		</div>
+	
+	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
+		<input id="cadastrarButton" type="submit" value="Cadastrar">
+	</div>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

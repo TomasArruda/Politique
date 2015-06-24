@@ -13,7 +13,7 @@ Cadastrar Empresa
 {% block body %}
 <form id="cadastrarEmpresa-form" action="{%url 'CadastrarEmpresa'%}" method="post">
 	{% csrf_token %}
-	<div class="cadastrar-form-div">
+			<div class="cadastrar-form-div">
 		<label for="inputNome">Nome</label>
 		<input type="text" name="nome" id="inputNome" class="cadastrar-form-input" placeholder="">
 	</div>
@@ -47,12 +47,6 @@ Cadastrar Empresa
 		<label for="iniciativas">Iniciativas</label><br />
 		{{ form.iniciativas }}
 	</div>
-
-	<!-- adicionar combobox de iniciativas relacionadas 
-	<div class="cadastrar-form-div">
-			<label for="inputIniciativa">Iniciativas Relacionadas</label><br />
-			{{ form.iniciativa }}
-	</div> -->
 
 	<div id="cadastrarButtonDiv" class="cadastrar-form-div">
 		<input id="cadastrarButton" type="submit" value="Cadastrar">

@@ -19,8 +19,7 @@ def cadastrarMembroView(request):
 
 @login_required(login_url='/Website')
 def ConsultarMembroView(request):
-    #nome e setor
-    membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('username') )
+    membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('username'), fields=('username','first_name', 'setor') )
     return render(request, 'consultarMembro.html', {'membros': membros})
 
 @login_required(login_url='/Website')

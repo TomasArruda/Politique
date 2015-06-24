@@ -12,21 +12,26 @@ def FinanciamentoView(request):
 
 @login_required(login_url='/Website')
 def CadastrarFinanciamentoView(request):
+
 	form = FinanciamentoForm(request.POST or None)
 
 	if form.is_valid():
 		form.save()
-		
+
 	return render(request, 'cadastrarFinanciamento.html', { "form" : form })
 
 @login_required(login_url='/Website')
+def EditarFinanciamentoView(request):
+	return render(request, 'editarFinanciamento.html')
+
+@login_required(login_url='/Website')
 def ConsultarFinanciamentoView(request):
-	#nome e valor
+	#iniciativas = Financiamento.objects.filter().order_by('nome')
 	financiamentos = serializers.serialize( "python", Financiamento.objects.filter().order_by('nome') )
 	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos})
 
 @login_required(login_url='/Website')
 def RemoverFinanciamentoView(request, id):
-    obj = Financiamento.objects.get(pk=id)
-    obj.delete()
-    return render(request, 'consultarFinanciamento.html')
+	obj = Financiamento.objects.get(pk=id)
+	obj.delete()
+	return render(request, 'consultarFinanciamento.html')

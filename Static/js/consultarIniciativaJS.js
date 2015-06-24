@@ -29,9 +29,8 @@ function addRowHandlers() {
                     cells = row.getElementsByTagName("td");
                     website = cells[0].firstChild;
                     realizada = cells[1].firstChild;
-                    apoio = cells[1].firstChild;
-                    percepcao = cells[2].firstChild;
-                    Presenca = cells[3].firstChild;
+                    apoio = cells[2].firstChild;
+                    percepcao = cells[3].firstChild;
                     publicoAlvo = cells[4].firstChild;
                     duracao = cells[5].firstChild;
                     questoesChaves = cells[6].firstChild;
