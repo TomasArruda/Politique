@@ -20,5 +20,4 @@ def CadastrarSetorView(request):
 
 @login_required(login_url='/Website')
 def RemoverSetorView(request):
-
 	return render(request, 'setores.html')

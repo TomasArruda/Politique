@@ -25,6 +25,7 @@ def EditarIniciativaView(request):
 
 @login_required(login_url='/Website')
 def ConsultarIniciativaView(request):
+	# nome, data, duracao
 	#iniciativas = Iniciativa.objects.filter().order_by('nome')
 	iniciativas = serializers.serialize( "python", Iniciativa.objects.filter().order_by('nome') )
 	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas})
