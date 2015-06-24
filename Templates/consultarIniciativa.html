@@ -154,7 +154,7 @@ Consultar Iniciativas
 			</tr>
 
 			{% for instance in iniciativas %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}')" class="tabela-linha">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}				
@@ -165,7 +165,7 @@ Consultar Iniciativas
 
 	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Iniciativa</a></li>
-		<li>Remover Iniciativa</li>
+		<li><a href="#" id="removerLink">Remover Iniciativa</li>
 	</ul>
 
 	<div id="consultarButtonDiv" class="consultar-form-div">

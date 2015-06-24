@@ -31,7 +31,7 @@ def ConsultarIniciativaView(request):
 	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas})
 
 @login_required(login_url='/Website')
-def RemoverIniciativaView(request, id):
+def RemoverIniciativaView(request, id):	
 	obj = Iniciativa.objects.get(pk=id)
 	obj.delete()
 	return render(request, 'consultarIniciativa.html')
