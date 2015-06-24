@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/consultarMembroStyle.css' %}">
 {% endblock %}
 
 {% block main-title %}
@@ -23,27 +23,65 @@ Consultar Membro
 </div>
 {% endif %}
 
+<!-- Modal editar Iniciativa -->
+<div id="modalEditarMembro" hidden>
+
+	<h1>Editar Membro</h1>
+
+	<form action="#" method="POST">
+		{% csrf_token %}
+		<div class="editar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="first_name" id="inputNome" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputEmail">E-mail</label>
+			<input type="text" name="username" id="inputEmail" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputPassword">Senha</label>
+			<input type="text" name="password" id="inputPassword" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputTelefone">Telefones</label>
+			<input type="text" name="telefone" id="inputTelefone" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputSetor">Setor</label><br />
+			{{ form.setor }}
+		</div>
+
+		<div id="editarButtonDiv" class="editar-form-div">
+			<input id="editarButton" type="submit" value="Editar">
+		</div>
+	</form>				
+</div><!-- /.modal -->
+
 <form id="consultarIniciativa-form" action="{%url 'ConsultarMembro'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
-	<div class="atualizar-form-div">
+	<div class="consultar-form-div">
 		<label for="inputMembroVar">Variável</label><br />
 		<select name="inputMembroVar">
 			{% for instance in membros|slice:"1" %}
-				{% for field, value in instance.fields.items %}
-				<option value="{{field}}">{{field}}</option>
-				{% endfor %}
-				{% endfor %}
+			{% for field, value in instance.fields.items %}
+			<option value="{{field}}">{{field}}</option>
+			{% endfor %}
+			{% endfor %}
 		</select>
 	</div>
 
-	<div class="atualizar-form-div">
+	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="atualizar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
 	</div>
 
-	<div class="atualizar-form-div">
-				<table>
+	<div class="consultar-form-div">
+		<table id="tabela">
 			<tr>
 				{% for instance in membros|slice:"1" %}
 				{% for field, value in instance.fields.items %}
@@ -52,18 +90,23 @@ Consultar Membro
 				{% endfor %}
 			</tr>
 
-		{% for instance in membros %}
-		<tr>
-		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
-		{% endfor %}
-	</tr>
-		{% endfor %}
-	</table>
+			{% for instance in membros %}
+			<tr class="tabela-linha">
+				{% for field, value in instance.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
 	</div>
 
-	<div id="atualizarButtonDiv" class="atualizar-form-div">
-		<input id="atualizarButton" type="submit" value="Consultar">
+	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
+		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Iniciativa</a></li>
+		<li>Remover Iniciativa</li>
+	</ul>
+
+	<div id="consultarButtonDiv" class="consultar-form-div">
+		<input id="consultarButton" type="submit" value="Consultar">
 	</div>
 
 </form>
@@ -71,4 +114,7 @@ Consultar Membro
 {% endblock %}
 
 {% block scripts %}
+
+<script src="{% static 'js/consultarMembroJS.js' %}"></script>
+
 {% endblock %}
