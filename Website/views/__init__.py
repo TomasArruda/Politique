@@ -8,6 +8,9 @@ from evento import CadastrarEventoView
 from evento import ConsultarEventoView
 from telefone import TelefoneView
 from financiamento import FinanciamentoView
+from financiamento import CadastrarFinanciamentoView
+from financiamento import ConsultarFinanciamentoView
+from financiamento import EditarFinanciamentoView
 from iniciativa import IniciativaView
 from iniciativa import CadastrarIniciativaView
 from iniciativa import ConsultarIniciativaView

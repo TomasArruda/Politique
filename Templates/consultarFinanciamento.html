@@ -1,0 +1,140 @@
+{% extends "baseInterna.html" %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/consultarFinanciamentoStyle.css' %}">
+{% endblock %}
+
+{% block main-title %}
+Consultar Financiamentos
+{% endblock %}
+
+{% block body %}
+
+{% if form.errors %}
+<div id="form-error">
+	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+	<ul>
+		{% for field in form %}
+		<li> {{ field.name }} {{ field.errors|striptags }}</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}
+
+<!-- Modal editar Iniciativa -->
+<div id="modalEditarFinanciamento" hidden>
+
+	<h1>Editar Financiamento</h1>
+
+	<form action="#" method="POST">
+		{% csrf_token %}
+		<div class="editar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputPublico">Processo</label>
+			<input type="text" name="processo" id="inputProcesso" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputDuracao">Tema</label><br />
+			<input type="text" name="tema" id="inputTema" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputQuestoes">Projetos</label>
+			<input type="text" name="projetos" id="inputProjetos" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputArea">Valor</label>
+			<input type="text" name="valor" id="inputValor" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputMissao">Prazos</label>
+			<input type="text" name="prazos" id="inputPrazos" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputAnoFund">Instituição Responsável</label>
+			<input type="text" name="institResponsavel" id="inputInstitResponsavel" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputWebsite">Vencedores Anteriores</label>
+			<input type="text" name="vencedores" id="inputVencedores" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="atualizar-form-div">
+			<label for="membro">Membro Responsável</label><br />
+			{{ form.membro }}
+		</div>
+
+		<div id="editarButtonDiv" class="editar-form-div">
+			<input id="editarButton" type="submit" value="Editar">
+		</div>
+	</form>				
+</div><!-- /.modal -->
+
+<form id="consultarFinanciamento-form" action="{%url 'ConsultarFinanciamento'%}" method="post"> <!-- action correto? -->
+	{% csrf_token %}
+
+	<div class="consultar-form-div">
+		<label for="inputFinanciamentosVar">Variável</label><br />
+		<select name="inputFinanciamentosVar">
+			{% for instance in financiamentos|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<option value="{{field}}">{{field}}</option>
+				{% endfor %}
+				{% endfor %}
+		</select>
+	</div>
+
+	<div class="consultar-form-div">
+		<label for="inputNome">Pesquisa</label>
+		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+	</div>
+
+	<div class="consultar-form-div">
+		<table id="tabela">
+			<tr>
+				{% for instance in financiamentos|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				<th>{{field}}</th>
+				{% endfor %}
+				{% endfor %}
+			</tr>
+
+			{% for instance in financiamentos %}
+			<tr class="tabela-linha">
+				{% for field, value in instance.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}				
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
+		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Financiamento</a></li>
+		<li>Remover Financiamento</li>
+	</ul>
+
+	<div id="consultarButtonDiv" class="consultar-form-div">
+		<input id="consultarButton" type="submit" value="Consultar">
+	</div>
+
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static 'js/consultarFinanciamentoJS.js' %}"></script>
+
+{% endblock %}
