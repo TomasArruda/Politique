@@ -25,5 +25,5 @@ def ConsultarMembroView(request):
 @login_required(login_url='/Website')
 def RemoverMembroView(request, id):
     obj = CystomUser.objects.get(pk=id)
-    obj.delete()
+    obj.is_active=False
     return render(request, 'consultarMembro.html')
