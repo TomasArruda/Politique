@@ -10,8 +10,6 @@
 Consultar Iniciativas
 {% endblock %}
 
-{% block body %}
-
 {% if form.errors %}
 <div id="form-error">
 	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
@@ -23,12 +21,13 @@ Consultar Iniciativas
 </div>
 {% endif %}
 
+{% block body %}
 <!-- Modal editar Iniciativa -->
 <div id="modalEditarIniciativa" hidden>
 
 	<h1>Editar Iniciativa</h1>
 
-	<form action="#" method="POST">
+	<form action="#" method="POST" id="editarForm">
 		{% csrf_token %}
 		<div class="col1">
 			<div class="editar-form-div">
@@ -154,7 +153,7 @@ Consultar Iniciativas
 			</tr>
 
 			{% for instance in iniciativas %}
-			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}')" class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}				

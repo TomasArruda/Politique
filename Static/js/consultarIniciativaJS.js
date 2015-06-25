@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 });
 
-function ClickHandler(row, id, token, e, url) {
+function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
     console.log(e);
     iniciativaId = id;
     cells = row.getElementsByTagName('td');
@@ -40,7 +40,8 @@ function ClickHandler(row, id, token, e, url) {
         event.stopPropagation();   
         setposition(e);     
         $('#dropdown').toggle();
-        $('#removerLink').attr('href', url)
+        $('#removerLink').attr('href', urlRemover);
+        $('#editarForm').attr('action', urlEditar);
     }    
 }
 
