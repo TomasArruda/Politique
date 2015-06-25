@@ -7,3 +7,4 @@ from evento import EventoInstitucionalForm
 from evento import CapacitacaoInternaForm
 from evento import CapacitacaoExternaForm
 from evento import EventoForm
+from financiamento import FinanciamentoForm

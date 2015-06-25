@@ -19,10 +19,12 @@ def CadastrarSetorView(request):
 	if form.is_valid():
 		form.save()
 		
-	return render(request, 'setores.html', {"form":form})
+	setores = serializers.serialize( "python", Setor.objects.filter().order_by('nome'), fields=('nome') )
+	return render(request, 'setores.html', {'setores': setores})
 
 @login_required(login_url='/Website')
-def RemoverSetorView(request):
-
+def RemoverSetorView(request, id):
+	obj = Setor.objects.get(pk=id)
+	obj.delete()
 	setores = serializers.serialize( "python", Setor.objects.filter().order_by('nome'), fields=('nome') )
 	return render(request, 'setores.html', {'setores': setores})

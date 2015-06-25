@@ -53,13 +53,37 @@ def CadastrarEventoView(request):
 
 @login_required(login_url='/Website')
 def ConsultarEventoView(request):
-	
-	eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome') )
-	capacitacoesInternas = serializers.serialize( "python", CapacitacaoInterna.objects.filter().order_by('nome') )
-	capacitacoesExternas = serializers.serialize( "python", CapacitacaoExterna.objects.filter().order_by('nome') )
-	eventosInstitucionais = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome') )
-	return render(request, 'consultarEvento.html', {'eventos': eventos, 'capacitacoesInternas': capacitacoesInternas, 'capacitacoesExternas': capacitacoesExternas, 'eventosInstitucionais': eventosInstitucionais})
 
+	form = EventoForm(None)
+
+	#nome e data
+	if request.method == 'POST':
+
+		request.POST.is_valid()
+
+		tipo = auxForm.cleaned_data['tipoEvento']
+
+		if tipo == "1":
+
+			eventos = serializers.serialize( "python", CapacitacaoInterna.objects.filter().order_by('nome'))
+
+		elif tipo == "2":
+
+			eventos = serializers.serialize( "python", CapacitacaoExterna.objects.filter().order_by('nome'))
+
+		elif tipo == "3":
+
+			eventos = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome'))
+
+		else:
+			eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome'))
+	
+	else:
+		eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome'))
+
+	return render(request, 'consultarEvento.html', {'eventos': eventos, 'form':form})
+
+@login_required(login_url='/Website')
 def RemoverEventoView(request, id):
     obj = Evento.objects.get(pk=id)
     obj.delete()
