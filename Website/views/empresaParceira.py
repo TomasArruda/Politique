@@ -20,6 +20,33 @@ def CadastrarEmpresaView(request):
 	return render(request, 'cadastrarEmpresa.html', { "form" : form })
 
 @login_required(login_url='/Website')
+def EditarEmpresaView(request, id):
+	form = EmpresaForm(request.POST or None)
+	obj = EmpresaParceira.objects.get(pk=id)
+
+	nome = models.CharField(max_length=100, blank=False, default='', null=False)
+	ramoAtuacao = models.CharField(max_length=100, blank=False, default='', null=False)
+	background = models.CharField(max_length=100, blank=False, default='', null=False)
+	apoios = models.CharField(max_length=100, blank=False, default='', null=False)
+	propostaApoio = models.CharField(max_length=100, blank=False, default='', null=False)
+
+	tipoParceria = models.ForeignKey('TipoParceria',default='', null=True, blank = False)
+	iniciativas = models.ManyToManyField('Iniciativa')
+
+	if form.is_valid():
+		obj.nome = form.cleaned_data['nome'] 
+		obj.ramoAtuacao = form.cleaned_data['ramoAtuacao']
+		obj.background = form.cleaned_data['background']
+		obj.apoios = form.cleaned_data['apoios']
+		obj.propostaApoio = form.cleaned_data['propostaApoio'] 
+		obj.tipoParceria = form.cleaned_data['tipoParceria']
+		obj.iniciativas = form.cleaned_data['iniciativas']
+		obj.save()
+
+	empresas = serializers.serialize( "python", EmpresaParceira.objects.filter().order_by('nome') )
+	return render(request, 'consultarFianaciamento.html', {'empresas': empresas, 'form': form})
+
+@login_required(login_url='/Website')
 def ConsultarEmpresaView(request):
 	#nome e ramo
 	form = EmpresaForm(None)
