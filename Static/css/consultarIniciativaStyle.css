@@ -57,12 +57,22 @@ th {
 
 #dropdown {
 	background: white;
-	border: 1px solid black;
+	border: 1px solid rgb(150,150,150);
 	border-radius: 5px;
 	padding: 10px;
 	list-style: none;
 	color: blue;
 	position: absolute;
+}
+
+#editarLink, #removerLink {
+	text-decoration: none;
+	font-style: none;
+	color: rgb(100,100,100);
+}
+
+#editarLink:hover, #removerLink:hover {
+	color: black;
 }
 
 #modalEditarIniciativa {
