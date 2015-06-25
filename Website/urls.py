@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.homeView, name='home'),
-    url(r'^AtualizarPerfil$', views.AtualizarPerfilView, name='AtualizarPerfil'),
+    url(r'^AtualizarPerfil$', views.AtualizarMembroView, name='AtualizarPerfil'),
     url(r'^CadastrarMembro$', views.cadastrarMembroView, name='CadastrarMembro'),
     url(r'^ConsultarMembro$', views.ConsultarMembroView, name='ConsultarMembro'),
     url(r'^Perfil$', views.perfilView, name='perfil'),

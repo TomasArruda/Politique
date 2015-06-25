@@ -1,5 +1,5 @@
 ###################### MEMBRO ###########################
-from membro import AtualizarPerfilView
+from membro import AtualizarMembroView
 from membro import cadastrarMembroView
 from membro import ConsultarMembroView
 ###################### SETOR ############################
@@ -25,6 +25,7 @@ from iniciativa import IniciativaView
 from iniciativa import CadastrarIniciativaView
 from iniciativa import ConsultarIniciativaView
 from iniciativa import EditarIniciativaView
+from iniciativa import RemoverIniciativaView
 ########################################################
 from tipoParceria import TipoParceriaView
 from telefone import TelefoneView

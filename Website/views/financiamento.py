@@ -26,9 +26,9 @@ def EditarFinanciamentoView(request):
 
 @login_required(login_url='/Website')
 def ConsultarFinanciamentoView(request):
-	#iniciativas = Financiamento.objects.filter().order_by('nome')
+	form = FinanciamentoForm(None)
 	financiamentos = serializers.serialize( "python", Financiamento.objects.filter().order_by('nome') )
-	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos})
+	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos, 'form' : form})
 
 @login_required(login_url='/Website')
 def RemoverFinanciamentoView(request, id):

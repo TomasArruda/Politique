@@ -53,6 +53,9 @@ def CadastrarEventoView(request):
 
 @login_required(login_url='/Website')
 def ConsultarEventoView(request):
+
+	form = EventoForm(None)
+
 	#nome e data
 	if request.method == 'POST':
 
@@ -78,7 +81,7 @@ def ConsultarEventoView(request):
 	else:
 		eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome'))
 
-	return render(request, 'consultarEvento.html', {'eventos': eventos})
+	return render(request, 'consultarEvento.html', {'eventos': eventos, 'form':form})
 
 @login_required(login_url='/Website')
 def RemoverEventoView(request, id):

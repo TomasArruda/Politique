@@ -53,7 +53,6 @@ def EditarIniciativaView(request, id):
 def ConsultarIniciativaView(request):
 	form = IniciativaForm(None)
 	# nome, data, duracao
-	#iniciativas = Iniciativa.objects.filter().order_by('nome')
 	iniciativas = serializers.serialize( "python", Iniciativa.objects.filter().order_by('nome') )
 	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas, 'form': form})
 

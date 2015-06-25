@@ -24,11 +24,13 @@ def AtualizarMembroView(request, id):
 
 @login_required(login_url='/Website')
 def ConsultarMembroView(request):
+    form = CustomUserForm(None)
     membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('username'), fields=('username','first_name', 'setor') )
-    return render(request, 'consultarMembro.html', {'membros': membros})
+    return render(request, 'consultarMembro.html', {'membros': membros, 'form':form})
 
 @login_required(login_url='/Website')
 def RemoverMembroView(request, id):
     obj = CystomUser.objects.get(pk=id)
     obj.is_active=False
+    obj.save()
     return render(request, 'consultarMembro.html')
