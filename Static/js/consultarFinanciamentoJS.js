@@ -64,3 +64,22 @@ function showModal(){
         $('#dropdown').hide();
     }
 }
+
+$('#inputPesquisa').bind('input', filtrarEvento);
+
+function filtrarEvento(){
+   
+    var pesquisaString = $(this).val();
+    var variavel = $('#cmb-variavel option:selected').text();
+
+    var filtrados = $('.'+variavel).filter(function(index) {
+      return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) != -1)
+    }).parent();
+      
+    var naoFiltrados = $('.'+variavel).filter(function(index) {
+      return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) == -1)
+    }).parent();
+
+    filtrados.show();
+    naoFiltrados.hide();
+};
