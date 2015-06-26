@@ -76,7 +76,7 @@ Consultar Empresas
 
 	<div class="consultar-form-div">
 		<label for="inputEmpresasVar">Variável</label><br />
-		<select name="inputEmpresasVar">
+		<select name="inputEmpresasVar" id="cmb-variavel">
 			{% for instance in empresas|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<option value="{{field}}">{{field}}</option>
@@ -87,7 +87,7 @@ Consultar Empresas
 
 	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputPesquisa" class="consultar-form-input" placeholder="">
 	</div>
 
 	<div class="consultar-form-div">
@@ -105,7 +105,7 @@ Consultar Empresas
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEmpresa' instance.pk %}', '{% url 'EditarEmpresa' instance.pk %}')" class="tabela-linha">
 
 		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
+		<td class="{{field}}">{{ value }}</td>
 		{% endfor %}
 	</tr>
 		{% endfor %}
