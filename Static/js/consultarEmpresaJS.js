@@ -35,12 +35,10 @@ function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
     }
 }
 
-
 function setposition(e) {
     var bodyOffsets = document.body.getBoundingClientRect();
     tempX = e.pageX - bodyOffsets.left;
     tempY = e.pageY;
-    console.log(tempX);
 
     $("#dropdown").css({ 'top': tempY, 'left': tempX });
 }

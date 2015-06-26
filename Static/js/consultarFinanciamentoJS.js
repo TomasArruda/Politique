@@ -14,6 +14,7 @@ $(document).ready(function(){
     });    
 
 });
+
 function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
                     financiamentoId = id;
                     cells = row.getElementsByTagName("td");
@@ -26,6 +27,7 @@ function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
                     valor = cells[6].firstChild;
                     membro = cells[7].firstChild;
                     projetos = cells[8].firstChild;
+
                     if ($('#dropdown:hidden')) {
                         event.stopPropagation();   
                         setposition(e);     

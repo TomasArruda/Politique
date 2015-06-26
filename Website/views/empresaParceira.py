@@ -33,6 +33,7 @@ def EditarEmpresaView(request, id):
 	# tipoParceria = models.ForeignKey('TipoParceria',default='', null=True, blank = False)
 	# iniciativas = models.ManyToManyField('Iniciativa')
 
+
 	if form.is_valid():
 		obj.nome = form.cleaned_data['nome'] 
 		obj.ramoAtuacao = form.cleaned_data['ramoAtuacao']

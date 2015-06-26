@@ -19,7 +19,7 @@
 					<a id="img-link" href="{% url 'perfil' %}"><img id="navbar-img" src="{% static 'img/politique-logo.jpg' %}"/></a>
 
 					<a id="logoutBtn" href="{% url 'Logout' %}"><img id="logoutImg" src="{% static 'img/logout.png' %}"></a>
-
+					
 					<a id="welcome-navbar" href="{% url 'perfil' %}">Olá, {{ request.user.first_name }}!</a>
 				</div>
 			</div>

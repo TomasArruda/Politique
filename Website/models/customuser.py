@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
 
-	eventos = models.ManyToManyField('Evento')
 	setor = models.ForeignKey('Setor',null=True)
 
 	USERNAME_FIELD = 'username'

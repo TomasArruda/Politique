@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
 {% endblock %}
 
+
 {% block main-title %}
 Consultar Iniciativas
 {% endblock %}
+
+{% block body %}
 
 {% if form.errors %}
 <div id="form-error">
@@ -21,7 +24,6 @@ Consultar Iniciativas
 </div>
 {% endif %}
 
-{% block body %}
 <!-- Modal editar Iniciativa -->
 <div id="modalEditarIniciativa" hidden>
 
@@ -37,7 +39,7 @@ Consultar Iniciativas
 
 			<div class="editar-form-div">
 				<label for="inputData">Data</label>
-				<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="">
+				<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="" required>
 			</div>
 
 			<div class="editar-form-div">

@@ -24,11 +24,13 @@ Consultar Financiamentos
 {% endif %}
 
 <!-- Modal editar Financiamento -->
+
 <div id="modalEditarFinanciamento" hidden>
 
 	<h1>Editar Financiamento</h1>
 
 	<form action="#" method="POST" id="editarForm">
+
 		{% csrf_token %}
 		<div class="editar-form-div">
 			<label for="inputNome">Nome</label>
@@ -111,7 +113,9 @@ Consultar Financiamentos
 			</tr>
 
 			{% for instance in financiamentos %}
+
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverFinanciamento' instance.pk %}', '{% url 'EditarFinanciamento' instance.pk %}')" class="tabela-linha">
+
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}				

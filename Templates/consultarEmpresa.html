@@ -101,7 +101,9 @@ Consultar Empresas
 			</tr>
 
 		{% for instance in empresas %}
+
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEmpresa' instance.pk %}', '{% url 'EditarEmpresa' instance.pk %}')" class="tabela-linha">
+
 		{% for field, value in instance.fields.items %}
 		<td>{{ value }}</td>
 		{% endfor %}
