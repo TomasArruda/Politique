@@ -65,25 +65,25 @@ function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
 
     if (row.className.includes('linha-interna')) {
     	material = cells[0].firstChild;
-    	tipoEvento = cells[1].firstChild;
-    	data = cells[2].firstChild;
-    	feedback = cells[3].firstChild;
-    	nome = cells[4].firstChild;
+    	tipoEvento = 1;
+    	data = cells[1].firstChild;
+    	feedback = cells[2].firstChild;
+    	nome = cells[3].firstChild;
     } else if (row.className.includes('linha-externa')) {
     	feedback = cells[0].firstChild;
     	nome = cells[1].firstChild;
     	custo = cells[2].firstChild;
-    	tipoEvento = cells[3].firstChild;
-    	data = cells[4].firstChild;
-    	palestrante = cells[5].firstChild;
+    	tipoEvento = 2;
+    	data = cells[3].firstChild;
+    	palestrante = cells[4].firstChild;
     } else {
     	feedback = cells[0].firstChild;
     	nome = cells[1].firstChild;
     	custo = cells[2].firstChild;
     	data = cells[3].firstChild;
-    	tipoEvento = cells[4].firstChild;
-    	motivoPatrocinio = cells[5].firstChild;
-    	empresasParceiras = cells[6].firstChild;
+    	tipoEvento = 3;
+    	motivoPatrocinio = cells[4].firstChild;
+    	empresasParceiras = cells[5].firstChild;
     }
     
     if ($('#dropdown:hidden')) {
@@ -110,14 +110,14 @@ function showModal(){
         document.getElementById('inputData').value = data.textContent;
         document.getElementById('inputFeedback').value = feedback.textContent;
         var tipoEventoString
-        if (tipoEvento.textContent === '1') {
+        if (tipoEvento === 1) {
         	tipoEventoString = 'Capacitação Interna';
-        } else if (tipoEvento.textContent === '2') {
+        } else if (tipoEvento === 2) {
         	tipoEventoString = 'Capacitação Externa';
         }
 
         //Definindo novos inputs baseado no valor atual do tipo de evento
-        document.getElementById('cmbBoxEventoModal').value = tipoEvento.textContent;        
+        document.getElementById('cmbBoxEventoModal').value = tipoEvento        
         tipoEventoSelecionado();
 
         if (tipoEventoString === "Capacitação Interna") {
@@ -134,3 +134,21 @@ function showModal(){
         $('#dropdown').hide();
     }
 }
+
+$('#inputPesquisa').bind('input', filtrarEvento);
+
+function filtrarEvento(){
+	var pesquisaString = $(this).val()
+	var variavel = $('select:visible.cmb-variavel option:selected').text()
+
+	var filtrados = $('.'+variavel).filter(function(index) {
+	  return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) != -1)
+	}).parent()
+	  
+	var naoFiltrados = $('.'+variavel).filter(function(index) {
+	  return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) == -1)
+	}).parent()
+
+	filtrados.show()
+	naoFiltrados.hide() 
+};

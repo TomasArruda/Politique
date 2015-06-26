@@ -82,7 +82,7 @@ Consultar Evento
 
 	<div class="consultar-form-div">
 		<label for="inputEventosVar">Variável</label><br />
-		<select id="cmb-interna" name="inputEventosVar">
+		<select id="cmb-interna" class="cmb-variavel" name="inputEventosVar">
 			{% for instance in eventos1|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
@@ -91,7 +91,7 @@ Consultar Evento
 				{% endfor %}
 				{% endfor %}
 		</select>
-		<select hidden id="cmb-externa" name="inputEventosVar">
+		<select hidden id="cmb-externa" class="cmb-variavel" name="inputEventosVar">
 			{% for instance in eventos2|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
@@ -100,7 +100,7 @@ Consultar Evento
 				{% endfor %}
 				{% endfor %}
 		</select>
-		<select hidden id="cmb-institucional" name="inputEventosVar">
+		<select hidden id="cmb-institucional" class="cmb-variavel" name="inputEventosVar">
 			{% for instance in eventos3|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
@@ -113,7 +113,7 @@ Consultar Evento
 
 	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputPesquisa" class="consultar-form-input" placeholder="">
 	</div>
 
 	<div class="consultar-form-div">
@@ -132,7 +132,7 @@ Consultar Evento
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEvento' instance.pk %}', '{% url 'EditarEvento' instance.pk %}')" class="tabela-linha linha-interna">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
-				<td>{{ value }}</td>
+				<td class="{{field}}">{{ value }}</td>
 				{% endif %}
 				{% endfor %}
 			</tr>
@@ -154,7 +154,7 @@ Consultar Evento
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-externa">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
-				<td>{{ value }}</td>
+				<td class="{{field}}">{{ value }}</td>
 				{% endif %}
 				{% endfor %}
 			</tr>
@@ -176,7 +176,7 @@ Consultar Evento
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-institucional">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
-				<td>{{ value }}</td>
+				<td class="{{field}}">{{ value }}</td>
 				{% endif %}
 				{% endfor %}
 			</tr>
