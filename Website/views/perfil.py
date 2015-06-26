@@ -4,4 +4,5 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/Website')
 def perfilView(request):
-	return render(request, 'perfil.html')
+	membro = request.user
+	return render(request, 'perfil.html', {'membro': membro})

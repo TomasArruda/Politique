@@ -11,6 +11,7 @@ from evento import EventoView
 from evento import CadastrarEventoView
 from evento import ConsultarEventoView
 from evento import RemoverEventoView
+from evento import EditarEventoView
 from capacitacaoExterna import CapacitacaoExternaView
 from capacitacaoInterna import CapacitacaoInternaView
 from eventoInstitucional import EventoInstitucionalView
@@ -34,6 +35,7 @@ from empresaParceira import EmpresaParceiraView
 from empresaParceira import CadastrarEmpresaView
 from empresaParceira import ConsultarEmpresaView
 from empresaParceira import RemoverEmpresaView
+from empresaParceira import EditarEmpresaView
 from contatoIniciativa import ContatoIniciativaView
 from contatoCapacitacao import ContatoCapacitacaoView
 ########################################################
