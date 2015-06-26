@@ -17,7 +17,7 @@ $(document).ready(function(){
 });
 
 function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
-    iniciativaId = id;
+    empresaId = id;
     cells = row.getElementsByTagName("td");
     ramoAtuacao = cells[0].firstChild;
     nome = cells[1].firstChild;

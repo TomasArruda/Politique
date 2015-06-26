@@ -91,7 +91,7 @@ Consultar Membro
 			</tr>
 
 			{% for instance in membros %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverMembro' instance.pk %}', '{% url 'EditarMembro' instance.pk %}')" class="tabela-linha">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}
@@ -102,7 +102,7 @@ Consultar Membro
 
 	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Membro</a></li>
-		<li>Remover Membro</li>
+		<li><a href="#" id="removerLink">Remover Membro</a></li>
 	</ul>
 
 	<div id="consultarButtonDiv" class="consultar-form-div">
