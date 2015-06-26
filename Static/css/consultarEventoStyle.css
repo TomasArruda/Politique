@@ -34,7 +34,9 @@
 	background-color: rgba(200,200,200,0.8);
 }
 
-#tabela {
+#tabela-interna,
+#tabela-externa, 
+#tabela-institucional {
 	border-collapse:collapse;
 	background: white;
 }
@@ -65,7 +67,17 @@ th {
 	position: absolute;
 }
 
-#modalEditarMembro {
+#editarLink, #removerLink {
+	text-decoration: none;
+	font-style: none;
+	color: rgb(100,100,100);
+}
+
+#editarLink:hover, #removerLink:hover {
+	color: black;
+}
+
+#modalEditarEvento {
 	position: fixed;
 	top: 0;
 	margin-top: 30px;
@@ -79,7 +91,7 @@ th {
 	border: 1px solid black;
 }
 
-#modalEditarMembro h1 {
+#modalEditarEvento h1 {
 	background: rgb(29, 84, 79);
 	color: white;
 	margin: 0;
@@ -120,22 +132,4 @@ th {
 #editarButton:hover {
 	cursor: pointer;
 	background-color: rgba(200,200,200,0.8);
-}
-
-.col1 {
-	width:40%;
-	margin-right:20%;
-	float:left;
-}
-
-.col2 {
-	float:left;
-	width:40%;
-}
-
-@media (max-width:1000px) {
-	.col1, .col2 {
-		float:none;
-		width:100%;
-	}
 }

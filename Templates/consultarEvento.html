@@ -23,7 +23,52 @@ Consultar Evento
 </div>
 {% endif %}
 
-<form id="consultarIniciativa-form" action="{%url 'ConsultarEvento'%}" method="post"> <!-- action correto? -->
+<!-- Modal editar Evento -->
+<div id="modalEditarEvento" hidden>
+
+	<h1>Editar Iniciativa</h1>
+
+	<form action="#" method="POST" id="editarForm">
+		{% csrf_token %}
+		<div class="editar-form-div">
+			<label for="inputNome">Nome</label>
+			<input type="text" name="nome" id="inputNome" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputData">Data</label>
+			<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="inputFeedback">FeedBack</label>
+			<input type="text" name="feedback" id="inputFeedback" class="editar-form-input" placeholder="">
+		</div>
+
+		<div class="editar-form-div">
+			<label for="cmbBoxEventoModal">Tipo de Evento</label><br />
+			<select id="cmbBoxEventoModal" name="tipoEvento">
+			  	<option value="1">Capacitação Interna</option>
+			  	<option value="2">Capacitação Externa</option>
+			  	<option value="3">Evento Institucional</option>
+			</select>
+		</div>	
+		
+		<div id="tipoEvento">
+		  <div class="editar-form-div">
+			   <label for="inputMaterial">Material</label>
+			   <input type="text" name="material" id="inputMaterial" class="editar-form-input" placeholder="">
+		  </div>
+	 	</div>
+
+		<div id="editarButtonDiv" class="editar-form-div">
+			<input id="editarButton" type="submit" value="Salvar">
+		</div>
+	</form>				
+</div>
+<!-- /.modal -->
+
+<form id="consultarEvento-form" action="{%url 'ConsultarEvento'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
 	<div class="consultar-form-div">
@@ -51,7 +96,7 @@ Consultar Evento
 	</div>
 
 	<div class="consultar-form-div">
-		<table hidden id="tabela-interna">
+		<table id="tabela-interna">
 			<tr>
 				{% for instance in eventos1|slice:"1" %}
 				{% for field, value in instance.fields.items %}
@@ -61,16 +106,14 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos1 %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEvento' instance.pk %}', '{% url 'EditarEvento' instance.pk %}')" class="tabela-linha linha-interna">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}
 			</tr>
 				{% endfor %}
 		</table>
-	</div>
 
-	<div class="consultar-form-div">
 		<table hidden id="tabela-externa">
 			<tr>
 				{% for instance in eventos2|slice:"1" %}
@@ -81,16 +124,14 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos2 %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-externa">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}
 			</tr>
 				{% endfor %}
 		</table>
-	</div>
 
-	<div class="consultar-form-div">
 		<table hidden id="tabela-institucional">
 			<tr>
 				{% for instance in eventos3|slice:"1" %}
@@ -101,7 +142,7 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos3 %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-institucional">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}
@@ -109,6 +150,11 @@ Consultar Evento
 				{% endfor %}
 		</table>
 	</div>
+
+	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
+		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Evento</a></li>
+		<li><a href="#" id="removerLink">Remover Evento</li>
+	</ul>
 
 	<div id="consultarButtonDiv" class="consultar-form-div">
 		<input id="consultarButton" type="submit" value="Consultar">

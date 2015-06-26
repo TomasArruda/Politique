@@ -10,6 +10,8 @@
 Consultar Iniciativas
 {% endblock %}
 
+{% block body %}
+
 {% if form.errors %}
 <div id="form-error">
 	<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
@@ -21,7 +23,6 @@ Consultar Iniciativas
 </div>
 {% endif %}
 
-{% block body %}
 <!-- Modal editar Iniciativa -->
 <div id="modalEditarIniciativa" hidden>
 

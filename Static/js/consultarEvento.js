@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-	 var tipoEventoCmbBox = $('#cmbBoxEvento');
-	 var tipoEventoNome = $('#cmbBoxEvento option:selected').text();
-	 var divTipoElemento = $('#tipoEvento');
-
 	$("#cmbBoxEvento").change(function(){
 
 		var tipoEventoCmbBox = $('#cmbBoxEvento');
@@ -23,5 +19,111 @@ $(document).ready(function(){
 		    $('#tabela-institucional').show();	
 		}
  	
- 	})
+ 	});
+
+	$("#cmbBoxEventoModal").change(tipoEventoSelecionado)
+
+ 	$(document).click( function(e){
+
+        if ($('#dropdown:visible')) {
+            $('#dropdown').hide();
+        }
+
+        if(!$(e.target).closest('#modalEditarEvento').length) {
+            if($('#modalEditarEvento').is(":visible")) {
+                $('#modalEditarEvento').hide()
+            }
+        }
+    }); 
 })
+
+function tipoEventoSelecionado() {
+	var tipoEventoCmbBox = $('#cmbBoxEventoModal');
+	var tipoEventoNome = $('#cmbBoxEventoModal option:selected').text();
+
+	if (tipoEventoNome === "Capacitação Interna") {
+		$('#tipoEvento').html('<div class="editar-form-div"><label for="inputMaterial">Material</label><input type="text" name="material" id="inputMaterial" class="editar-form-input" placeholder=""></div>');
+	} else if (tipoEventoNome === "Capacitação Externa") {
+	$('#tipoEvento').html('<div class="editar-form-div"><label for="inputCusto">Custo</label><input type="text" name="custo" id="inputCusto" class="editar-form-input" placeholder=""></div><div class="editar-form-div"><label for="inputPalestrante">Palestrante</label><input type="text" name="palestrante" id="inputPalestrante" class="editar-form-input" placeholder=""></div>');
+	} else {
+	$('#tipoEvento').html('<div class="editar-form-div"><label for="inputCusto">Custo</label><input type="text" name="custo" id="inputCusto" class="editar-form-input" placeholder=""></div><div class="editar-form-div"><label for="inputMotivo">Motivo de patrocínio</label><input type="text" name="motivoPatrocinio" id="inputMotivo" class="editar-form-input" placeholder=""></div>');
+	}
+}
+
+function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
+    console.log(e);
+    iniciativaId = id;
+    cells = row.getElementsByTagName('td');
+    console.log(row.className.includes('linha-interna'))
+
+    if (row.className.includes('linha-interna')) {
+    	material = cells[0].firstChild;
+    	tipoEvento = cells[1].firstChild;
+    	data = cells[2].firstChild;
+    	feedback = cells[3].firstChild;
+    	nome = cells[4].firstChild;
+    } else if (row.className.includes('linha-externa')) {
+    	feedback = cells[0].firstChild;
+    	nome = cells[1].firstChild;
+    	custo = cells[2].firstChild;
+    	tipoEvento = cells[3].firstChild;
+    	data = cells[4].firstChild;
+    	palestrante = cells[5].firstChild;
+    } else {
+    	feedback = cells[0].firstChild;
+    	nome = cells[1].firstChild;
+    	custo = cells[2].firstChild;
+    	data = cells[3].firstChild;
+    	tipoEvento = cells[4].firstChild;
+    	motivoPatrocinio = cells[5].firstChild;
+    	empresasParceiras = cells[6].firstChild;
+    }
+    
+    if ($('#dropdown:hidden')) {
+        event.stopPropagation();   
+        setposition(e);     
+        $('#dropdown').toggle();
+        $('#removerLink').attr('href', urlRemover);
+        $('#editarForm').attr('action', urlEditar);
+    }    
+}
+
+function setposition(e) {
+    var bodyOffsets = document.body.getBoundingClientRect();
+    tempX = e.pageX - bodyOffsets.left;
+    tempY = e.pageY;
+  console.log(tempX);
+
+    $("#dropdown").css({ 'top': tempY, 'left': tempX });
+}
+
+function showModal(){
+    if($('#modalEditarEvento:hidden')){
+        event.stopPropagation();
+        document.getElementById('inputNome').value = nome.textContent;
+        document.getElementById('inputData').value = data.textContent;
+        document.getElementById('inputFeedback').value = feedback.textContent;
+        var tipoEventoString
+        if (tipoEvento.textContent === '1') {
+        	tipoEventoString = 'Capacitação Interna';
+        } else if (tipoEvento.textContent === '2') {
+        	tipoEventoString = 'Capacitação Externa';
+        }
+        console.log(tipoEventoString);
+        document.getElementById('cmbBoxEventoModal').value = tipoEvento.textContent;
+        tipoEventoSelecionado();
+        if (tipoEventoString === "Capacitação Interna") {
+        	console.log(document.getElementById('inputMaterial'))
+        	document.getElementById('inputMaterial').value = material.textContent;
+        } else if (tipoEventoString === "Capacitação Externa") {
+        	document.getElementById('inputCusto').value = custo.textContent;
+        	document.getElementById('inputPalestrante').value = palestrante.textContent;
+        } else {
+        	document.getElementById('inputCusto').value = custo.textContent;
+        	document.getElementById('inputMotivo').value = motivoPatrocinio.textContent;
+        }
+
+        $('#modalEditarEvento').toggle();
+        $('#dropdown').hide();
+    }
+}
