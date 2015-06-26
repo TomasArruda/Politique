@@ -72,21 +72,42 @@ Consultar Evento
 	{% csrf_token %}
 
 	<div class="consultar-form-div">
-		<label for="inputEventosVar">Variável</label><br />
-		<select name="inputEventosVar">
-			{% for instance in eventos|slice:"1" %}
-				{% for field, value in instance.fields.items %}
-				<option value="{{field}}">{{field}}</option>
-				{% endfor %}
-				{% endfor %}
-		</select>
-	</div>
-	<div class="consultar-form-div">
 		<label for="cmbBoxEvento">Tipo de Evento</label><br />
 		<select id="cmbBoxEvento" name="tipoEvento">
 		  	<option value="1">Capacitação Interna</option>
 		  	<option value="2">Capacitação Externa</option>
 		  	<option value="3">Evento Institucional</option>
+		</select>
+	</div>
+
+	<div class="consultar-form-div">
+		<label for="inputEventosVar">Variável</label><br />
+		<select id="cmb-interna" name="inputEventosVar">
+			{% for instance in eventos1|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
+				<option value="{{field}}">{{field}}</option>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
+		</select>
+		<select hidden id="cmb-externa" name="inputEventosVar">
+			{% for instance in eventos2|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
+				<option value="{{field}}">{{field}}</option>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
+		</select>
+		<select hidden id="cmb-institucional" name="inputEventosVar">
+			{% for instance in eventos3|slice:"1" %}
+				{% for field, value in instance.fields.items %}
+				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
+				<option value="{{field}}">{{field}}</option>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
 		</select>
 	</div>
 
@@ -100,7 +121,9 @@ Consultar Evento
 			<tr>
 				{% for instance in eventos1|slice:"1" %}
 				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
 				<th>{{field}}</th>
+				{% endif %}
 				{% endfor %}
 				{% endfor %}
 			</tr>
@@ -108,7 +131,9 @@ Consultar Evento
 			{% for instance in eventos1 %}
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEvento' instance.pk %}', '{% url 'EditarEvento' instance.pk %}')" class="tabela-linha linha-interna">
 				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
 				<td>{{ value }}</td>
+				{% endif %}
 				{% endfor %}
 			</tr>
 				{% endfor %}
@@ -118,7 +143,9 @@ Consultar Evento
 			<tr>
 				{% for instance in eventos2|slice:"1" %}
 				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
 				<th>{{field}}</th>
+				{% endif %}
 				{% endfor %}
 				{% endfor %}
 			</tr>
@@ -126,7 +153,9 @@ Consultar Evento
 			{% for instance in eventos2 %}
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-externa">
 				{% for field, value in instance.fields.items %}
+				{% if field != 'tipoEvento' %}
 				<td>{{ value }}</td>
+				{% endif %}
 				{% endfor %}
 			</tr>
 				{% endfor %}
@@ -136,7 +165,9 @@ Consultar Evento
 			<tr>
 				{% for instance in eventos3|slice:"1" %}
 				{% for field, value in instance.fields.items %}
+				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
 				<th>{{field}}</th>
+				{% endif %}
 				{% endfor %}
 				{% endfor %}
 			</tr>
@@ -144,7 +175,9 @@ Consultar Evento
 			{% for instance in eventos3 %}
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-institucional">
 				{% for field, value in instance.fields.items %}
+				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
 				<td>{{ value }}</td>
+				{% endif %}
 				{% endfor %}
 			</tr>
 				{% endfor %}

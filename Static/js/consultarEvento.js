@@ -7,16 +7,25 @@ $(document).ready(function(){
 
 		if (tipoEventoNome === "Capacitação Interna") {
 		    $('#tabela-interna').show();
+		    $('#cmb-interna').show();
 		    $('#tabela-externa').hide();
+		    $('#cmb-externa').hide();
 		    $('#tabela-institucional').hide();
+		    $('#cmb-institucional').hide();
 		} else if (tipoEventoNome === "Capacitação Externa") {
 		  	$('#tabela-interna').hide();
+		    $('#cmb-interna').hide();
 		    $('#tabela-externa').show();
-		    $('#tabela-institucional').hide();		  
+		    $('#cmb-externa').show();
+		    $('#tabela-institucional').hide();
+		    $('#cmb-institucional').hide();		  
 		} else {
-		   $('#tabela-interna').hide();
+		    $('#tabela-interna').hide();
+		    $('#cmb-interna').hide();
 		    $('#tabela-externa').hide();
-		    $('#tabela-institucional').show();	
+		    $('#cmb-externa').hide();
+		    $('#tabela-institucional').show();
+		    $('#cmb-institucional').show();	
 		}
  	
  	});
@@ -51,10 +60,8 @@ function tipoEventoSelecionado() {
 }
 
 function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
-    console.log(e);
     iniciativaId = id;
     cells = row.getElementsByTagName('td');
-    console.log(row.className.includes('linha-interna'))
 
     if (row.className.includes('linha-interna')) {
     	material = cells[0].firstChild;
@@ -92,7 +99,6 @@ function setposition(e) {
     var bodyOffsets = document.body.getBoundingClientRect();
     tempX = e.pageX - bodyOffsets.left;
     tempY = e.pageY;
-  console.log(tempX);
 
     $("#dropdown").css({ 'top': tempY, 'left': tempX });
 }
@@ -109,11 +115,12 @@ function showModal(){
         } else if (tipoEvento.textContent === '2') {
         	tipoEventoString = 'Capacitação Externa';
         }
-        console.log(tipoEventoString);
-        document.getElementById('cmbBoxEventoModal').value = tipoEvento.textContent;
+
+        //Definindo novos inputs baseado no valor atual do tipo de evento
+        document.getElementById('cmbBoxEventoModal').value = tipoEvento.textContent;        
         tipoEventoSelecionado();
+
         if (tipoEventoString === "Capacitação Interna") {
-        	console.log(document.getElementById('inputMaterial'))
         	document.getElementById('inputMaterial').value = material.textContent;
         } else if (tipoEventoString === "Capacitação Externa") {
         	document.getElementById('inputCusto').value = custo.textContent;
