@@ -57,4 +57,6 @@ def ConsultarEmpresaView(request):
 def RemoverEmpresaView(request, id):
     obj = EmpresaParceira.objects.get(pk=id)
     obj.delete()
-    return render(request, 'consultarEmpresa.html')
+    form = EmpresaForm(request.POST or None)
+    empresas = serializers.serialize( "python", EmpresaParceira.objects.filter().order_by('nome') )
+    return render(request, 'consultarEmpresa.html', {'empresas': empresas, 'form' : form})
