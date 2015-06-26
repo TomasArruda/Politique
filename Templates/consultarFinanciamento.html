@@ -23,7 +23,7 @@ Consultar Financiamentos
 </div>
 {% endif %}
 
-<!-- Modal editar Iniciativa -->
+<!-- Modal editar Financiamento -->
 <div id="modalEditarFinanciamento" hidden>
 
 	<h1>Editar Financiamento</h1>
@@ -111,7 +111,7 @@ Consultar Financiamentos
 			</tr>
 
 			{% for instance in financiamentos %}
-			<tr class="tabela-linha">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverFinanciamento' instance.pk %}', '{% url 'EditarFinanciamento' instance.pk %}')" class="tabela-linha">
 				{% for field, value in instance.fields.items %}
 				<td>{{ value }}</td>
 				{% endfor %}				
@@ -122,7 +122,7 @@ Consultar Financiamentos
 
 	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Financiamento</a></li>
-		<li>Remover Financiamento</li>
+		<li><a href="#" id="removerLink">Remover Financiamento</a></li>
 	</ul>
 
 	<div id="consultarButtonDiv" class="consultar-form-div">

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    addRowHandlers();
     
     $(document).click( function(e){
 
@@ -15,17 +14,8 @@ $(document).ready(function(){
     });    
 
 });
-
-function addRowHandlers() {
-    var table = document.getElementById("tabela");
-    var rows = table.getElementsByTagName("tr");
-
-    for (i = 0; i < rows.length; i++) {
-        var currentRow = table.rows[i];
-        var createClickHandler = 
-            function(row) 
-            {
-                return function(e) { 
+function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
+                    financiamentoId = id;
                     cells = row.getElementsByTagName("td");
                     instituicaoResponsavel = cells[0].firstChild;
                     vencedoresAnteriores = cells[1].firstChild;
@@ -36,18 +26,15 @@ function addRowHandlers() {
                     valor = cells[6].firstChild;
                     membro = cells[7].firstChild;
                     projetos = cells[8].firstChild;
-
                     if ($('#dropdown:hidden')) {
                         event.stopPropagation();   
                         setposition(e);     
                         $('#dropdown').toggle();
+                        $('#removerLink').attr('href', urlRemover);
+        $('#editarForm').attr('action', urlEditar);
                     }
-                };
-            };
+                }
 
-        currentRow.onclick = createClickHandler(currentRow);
-    }
-}
 
 function setposition(e) {
     var bodyOffsets = document.body.getBoundingClientRect();
