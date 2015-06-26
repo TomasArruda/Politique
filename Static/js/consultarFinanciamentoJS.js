@@ -31,7 +31,7 @@ function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
                         setposition(e);     
                         $('#dropdown').toggle();
                         $('#removerLink').attr('href', urlRemover);
-        $('#editarForm').attr('action', urlEditar);
+                        $('#editarForm').attr('action', urlEditar);
                     }
                 }
 

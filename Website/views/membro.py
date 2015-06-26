@@ -24,13 +24,13 @@ def EditarMembroView(request, id):
     obj = CustomUser.objects.get(pk=id)
 
     if form.is_valid():
-        obj.nome = form.cleaned_data['nome'] 
-        obj.user = form.cleaned_data['user']
+        obj.first_name = form.cleaned_data['first_name'] 
+        obj.username = form.cleaned_data['username']
         obj.email = form.cleaned_data['email']
         obj.setor = form.cleaned_data['setor'] 
         obj.save()
 
-    membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('nome') )
+    membros = serializers.serialize( "python", CustomUser.objects.filter().order_by('first_name'), fields=('username','first_name', 'setor') )
     return render(request, 'consultarMembro.html', {'membros': membros, 'form': form})
 
 

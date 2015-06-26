@@ -28,7 +28,7 @@ Consultar Financiamentos
 
 	<h1>Editar Financiamento</h1>
 
-	<form action="#" method="POST">
+	<form action="#" method="POST" id="editarForm">
 		{% csrf_token %}
 		<div class="editar-form-div">
 			<label for="inputNome">Nome</label>
@@ -62,12 +62,12 @@ Consultar Financiamentos
 
 		<div class="editar-form-div">
 			<label for="inputAnoFund">Instituição Responsável</label>
-			<input type="text" name="institResponsavel" id="inputInstitResponsavel" class="editar-form-input" placeholder="">
+			<input type="text" name="instituicaoResponsavel" id="inputInstitResponsavel" class="editar-form-input" placeholder="">
 		</div>
 
 		<div class="editar-form-div">
 			<label for="inputWebsite">Vencedores Anteriores</label>
-			<input type="text" name="vencedores" id="inputVencedores" class="editar-form-input" placeholder="">
+			<input type="text" name="vencedoresAnteriores" id="inputVencedores" class="editar-form-input" placeholder="">
 		</div>
 
 		<div class="atualizar-form-div">

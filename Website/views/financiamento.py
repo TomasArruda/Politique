@@ -24,6 +24,7 @@ def CadastrarFinanciamentoView(request):
 def EditarFinanciamentoView(request, id):
 	form = FinanciamentoForm(request.POST or None)
 	obj = Financiamento.objects.get(pk=id)
+	print "ewwdedw"
 
 	if form.is_valid():
 		obj.nome = form.cleaned_data['nome'] 
@@ -38,7 +39,7 @@ def EditarFinanciamentoView(request, id):
 		obj.save()
 
 	financiamentos = serializers.serialize( "python", Financiamento.objects.filter().order_by('nome') )
-	return render(request, 'consultarFianaciamento.html', {'financiamentos': financiamentos, 'form': form})
+	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos, 'form': form})
 
 
 @login_required(login_url='/Website')
