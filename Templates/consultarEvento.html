@@ -26,7 +26,7 @@ Consultar Evento
 <form id="consultarIniciativa-form" action="{%url 'ConsultarEvento'%}" method="post"> <!-- action correto? -->
 	{% csrf_token %}
 
-	<div class="atualizar-form-div">
+	<div class="consultar-form-div">
 		<label for="inputEventosVar">Variável</label><br />
 		<select name="inputEventosVar">
 			{% for instance in eventos|slice:"1" %}
@@ -36,6 +36,14 @@ Consultar Evento
 				{% endfor %}
 		</select>
 	</div>
+	<div class="consultar-form-div">
+		<label for="cmbBoxEvento">Tipo de Evento</label><br />
+		<select id="cmbBoxEvento" name="tipoEvento">
+		  	<option value="1">Capacitação Interna</option>
+		  	<option value="2">Capacitação Externa</option>
+		  	<option value="3">Evento Institucional</option>
+		</select>
+	</div>
 
 	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
@@ -43,83 +51,63 @@ Consultar Evento
 	</div>
 
 	<div class="consultar-form-div">
-				<table id="tabela">
+		<table hidden id="tabela-interna">
 			<tr>
-				{% for instance in eventos|slice:"1" %}
+				{% for instance in eventos1|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<th>{{field}}</th>
 				{% endfor %}
 				{% endfor %}
 			</tr>
 
-		{% for instance in eventos %}
-		<tr class="tabela-linha">
-		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
-		{% endfor %}
-	</tr>
-		{% endfor %}
-	</table>
+			{% for instance in eventos1 %}
+			<tr class="tabela-linha">
+				{% for field, value in instance.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}
+			</tr>
+				{% endfor %}
+		</table>
 	</div>
 
-		<div class="consultar-form-div">
-				<table id="tabela">
+	<div class="consultar-form-div">
+		<table hidden id="tabela-externa">
 			<tr>
-				{% for instance in capacitacoesInternas|slice:"1" %}
+				{% for instance in eventos2|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<th>{{field}}</th>
 				{% endfor %}
 				{% endfor %}
 			</tr>
 
-		{% for instance in capacitacoesInternas %}
-		<tr class="tabela-linha">
-		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
-		{% endfor %}
-	</tr>
-		{% endfor %}
-	</table>
+			{% for instance in eventos2 %}
+			<tr class="tabela-linha">
+				{% for field, value in instance.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}
+			</tr>
+				{% endfor %}
+		</table>
 	</div>
 
-		<div class="consultar-form-div">
-				<table id="tabela">
+	<div class="consultar-form-div">
+		<table hidden id="tabela-institucional">
 			<tr>
-				{% for instance in capacitacoesExternas|slice:"1" %}
+				{% for instance in eventos3|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<th>{{field}}</th>
 				{% endfor %}
 				{% endfor %}
 			</tr>
 
-		{% for instance in capacitacoesExternas %}
-		<tr class="tabela-linha">
-		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
-		{% endfor %}
-	</tr>
-		{% endfor %}
-	</table>
-	</div>
-
-		<div class="consultar-form-div">
-				<table id="tabela">
-			<tr>
-				{% for instance in eventosInstitucionais|slice:"1" %}
+			{% for instance in eventos3 %}
+			<tr class="tabela-linha">
 				{% for field, value in instance.fields.items %}
-				<th>{{field}}</th>
-				{% endfor %}
+				<td>{{ value }}</td>
 				{% endfor %}
 			</tr>
-
-		{% for instance in eventosInstitucionais %}
-		<tr class="tabela-linha">
-		{% for field, value in instance.fields.items %}
-		<td>{{ value }}</td>
-		{% endfor %}
-	</tr>
-		{% endfor %}
-	</table>
+				{% endfor %}
+		</table>
 	</div>
 
 	<div id="consultarButtonDiv" class="consultar-form-div">
@@ -131,4 +119,5 @@ Consultar Evento
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'js/consultarEvento.js' %}"></script>
 {% endblock %}

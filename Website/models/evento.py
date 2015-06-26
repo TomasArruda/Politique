@@ -16,4 +16,5 @@ class Evento(models.Model):
 		return self.nome
 
 	class  Meta:
+		abstract = True
 		ordering = ('nome',)

@@ -9,9 +9,9 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
 def EventoView(request):
-    query = Evento.objects.order_by('nome')
+    #query = Evento.objects.order_by('nome')
     #context = RequestContext(request, {'latest_question_list': latest_question_list,})
-    #render(request, '/membros.html', context)
+    return render(request, '/membros.html')
 
 @login_required(login_url='/Website')
 def CadastrarEventoView(request):
@@ -125,33 +125,13 @@ def EditarEventoView(request, id):
 def ConsultarEventoView(request):
 
 	form = EventoForm(None)
+	eventos1 = serializers.serialize( "python", CapacitacaoInterna.objects.filter().order_by('nome'))
 
-	#nome e data
-	if request.method == 'POST':
+	eventos2 = serializers.serialize( "python", CapacitacaoExterna.objects.filter().order_by('nome'))
 
-		request.POST.is_valid()
+	eventos3 = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome'))
 
-		tipo = auxForm.cleaned_data['tipoEvento']
-
-		if tipo == "1":
-
-			eventos = serializers.serialize( "python", CapacitacaoInterna.objects.filter().order_by('nome'))
-
-		elif tipo == "2":
-
-			eventos = serializers.serialize( "python", CapacitacaoExterna.objects.filter().order_by('nome'))
-
-		elif tipo == "3":
-
-			eventos = serializers.serialize( "python", EventoInstitucional.objects.filter().order_by('nome'))
-
-		else:
-			eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome'))
-	
-	else:
-		eventos = serializers.serialize( "python", Evento.objects.filter().order_by('nome'))
-
-	return render(request, 'consultarEvento.html', {'eventos': eventos, 'form':form})
+	return render(request, 'consultarEvento.html', {'eventos1': eventos1, 'eventos2':eventos2, 'eventos3':eventos3, 'form':form})
 
 @login_required(login_url='/Website')
 def RemoverEventoView(request, id):

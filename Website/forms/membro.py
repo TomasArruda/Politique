@@ -16,7 +16,7 @@ from django import forms
 class CustomUserForm(forms.ModelForm):
 	class Meta:
 		model = CustomUser
-		exclude = ('last_login','eventos', 'date_joined')
+		exclude = ('last_login', 'date_joined')
 
 	def save(self, commit=True):
 		# Save the provided password in hashed format
