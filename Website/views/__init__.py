@@ -12,8 +12,12 @@ from setor import CadastrarSetorView
 from evento import EventoView
 from evento import CadastrarEventoView
 from evento import ConsultarEventoView
-from evento import RemoverEventoView
-from evento import EditarEventoView
+from evento import RemoverCapacitacaoExternaView
+from evento import RemoverCapacitacaoInternaView
+from evento import RemoverEventoInstitucionalView
+from evento import EditarCapacitacaoExternaView
+from evento import EditarCapacitacaoInternaView
+from evento import EditarEventoInstitucionalView
 from capacitacaoExterna import CapacitacaoExternaView
 from capacitacaoInterna import CapacitacaoInternaView
 from eventoInstitucional import EventoInstitucionalView
