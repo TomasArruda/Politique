@@ -22,13 +22,13 @@ Consultar Financiamentos
 	</ul>
 </div>
 {% endif %}
+<!-- Modal editar Financiamento -->
 
-<!-- Modal editar Iniciativa -->
 <div id="modalEditarFinanciamento" hidden>
 
 	<h1>Editar Financiamento</h1>
 
-	<form action="#" method="POST">
+	<form action="#" method="POST" id="editarForm">
 		{% csrf_token %}
 		<div class="editar-form-div">
 			<label for="inputNome">Nome</label>
@@ -62,12 +62,12 @@ Consultar Financiamentos
 
 		<div class="editar-form-div">
 			<label for="inputAnoFund">Instituição Responsável</label>
-			<input type="text" name="institResponsavel" id="inputInstitResponsavel" class="editar-form-input" placeholder="">
+			<input type="text" name="instituicaoResponsavel" id="inputInstitResponsavel" class="editar-form-input" placeholder="">
 		</div>
 
 		<div class="editar-form-div">
 			<label for="inputWebsite">Vencedores Anteriores</label>
-			<input type="text" name="vencedores" id="inputVencedores" class="editar-form-input" placeholder="">
+			<input type="text" name="vencedoresAnteriores" id="inputVencedores" class="editar-form-input" placeholder="">
 		</div>
 
 		<div class="atualizar-form-div">
@@ -86,7 +86,7 @@ Consultar Financiamentos
 
 	<div class="consultar-form-div">
 		<label for="inputFinanciamentosVar">Variável</label><br />
-		<select name="inputFinanciamentosVar">
+		<select name="inputFinanciamentosVar" id="cmb-variavel">
 			{% for instance in financiamentos|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<option value="{{field}}">{{field}}</option>
@@ -97,7 +97,7 @@ Consultar Financiamentos
 
 	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputPesquisa" class="consultar-form-input" placeholder="">
 	</div>
 
 	<div class="consultar-form-div">
@@ -111,9 +111,11 @@ Consultar Financiamentos
 			</tr>
 
 			{% for instance in financiamentos %}
-			<tr class="tabela-linha">
+
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverFinanciamento' instance.pk %}', '{% url 'EditarFinanciamento' instance.pk %}')" class="tabela-linha">
+
 				{% for field, value in instance.fields.items %}
-				<td>{{ value }}</td>
+				<td class="{{field}}">{{ value }}</td>
 				{% endfor %}				
 			</tr>
 			{% endfor %}
@@ -122,13 +124,8 @@ Consultar Financiamentos
 
 	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Financiamento</a></li>
-		<li>Remover Financiamento</li>
+		<li><a href="#" id="removerLink">Remover Financiamento</a></li>
 	</ul>
-
-	<div id="consultarButtonDiv" class="consultar-form-div">
-		<input id="consultarButton" type="submit" value="Consultar">
-	</div>
-
 </form>
 
 {% endblock %}

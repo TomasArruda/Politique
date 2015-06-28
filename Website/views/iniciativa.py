@@ -60,4 +60,6 @@ def ConsultarIniciativaView(request):
 def RemoverIniciativaView(request, id):	
 	obj = Iniciativa.objects.get(pk=id)
 	obj.delete()
-	return render(request, 'consultarIniciativa.html')
+	form = IniciativaForm(request.POST or None)
+	iniciativas = serializers.serialize( "python", Iniciativa.objects.filter().order_by('nome') )
+	return render(request, 'consultarIniciativa.html', {'iniciativas': iniciativas, 'form': form})

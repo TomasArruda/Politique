@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    addRowHandlers();
     
     $(document).click( function(e){
 
@@ -15,37 +14,25 @@ $(document).ready(function(){
     });    
 
 });
+function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
+    financiamentoId = id;
+    cells = row.getElementsByTagName("td");
+    instituicaoResponsavel = cells[0].firstChild;
+    vencedoresAnteriores = cells[1].firstChild;
+    nome = cells[2].firstChild;
+    processo = cells[3].firstChild;
+    tema = cells[4].firstChild;
+    prazos = cells[5].firstChild;
+    valor = cells[6].firstChild;
+    membro = cells[7].firstChild;
+    projetos = cells[8].firstChild;
 
-function addRowHandlers() {
-    var table = document.getElementById("tabela");
-    var rows = table.getElementsByTagName("tr");
-
-    for (i = 0; i < rows.length; i++) {
-        var currentRow = table.rows[i];
-        var createClickHandler = 
-            function(row) 
-            {
-                return function(e) { 
-                    cells = row.getElementsByTagName("td");
-                    instituicaoResponsavel = cells[0].firstChild;
-                    vencedoresAnteriores = cells[1].firstChild;
-                    nome = cells[2].firstChild;
-                    processo = cells[3].firstChild;
-                    tema = cells[4].firstChild;
-                    prazos = cells[5].firstChild;
-                    valor = cells[6].firstChild;
-                    membro = cells[7].firstChild;
-                    projetos = cells[8].firstChild;
-
-                    if ($('#dropdown:hidden')) {
-                        event.stopPropagation();   
-                        setposition(e);     
-                        $('#dropdown').toggle();
-                    }
-                };
-            };
-
-        currentRow.onclick = createClickHandler(currentRow);
+    if ($('#dropdown:hidden')) {
+        event.stopPropagation();   
+        setposition(e);     
+        $('#dropdown').toggle();
+        $('#removerLink').attr('href', urlRemover);
+        $('#editarForm').attr('action', urlEditar);
     }
 }
 
@@ -75,3 +62,22 @@ function showModal(){
         $('#dropdown').hide();
     }
 }
+
+$('#inputPesquisa').bind('input', filtrarEvento);
+
+function filtrarEvento(){
+   
+    var pesquisaString = $(this).val();
+    var variavel = $('#cmb-variavel option:selected').text();
+
+    var filtrados = $('.'+variavel).filter(function(index) {
+      return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) != -1)
+    }).parent();
+      
+    var naoFiltrados = $('.'+variavel).filter(function(index) {
+      return (this.innerHTML.toLowerCase().indexOf(pesquisaString.toLowerCase()) == -1)
+    }).parent();
+
+    filtrados.show();
+    naoFiltrados.hide();
+};

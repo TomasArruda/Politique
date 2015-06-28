@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/consultarIniciativaStyle.css' %}">
 {% endblock %}
 
+
 {% block main-title %}
 Consultar Iniciativas
 {% endblock %}
@@ -38,7 +39,7 @@ Consultar Iniciativas
 
 			<div class="editar-form-div">
 				<label for="inputData">Data</label>
-				<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="">
+				<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="" required>
 			</div>
 
 			<div class="editar-form-div">
@@ -129,7 +130,7 @@ Consultar Iniciativas
 
 	<div class="consultar-form-div">
 		<label for="inputIniciativasVar">Variável</label><br />
-		<select name="inputIniciativasVar">
+		<select name="inputIniciativasVar" id="cmb-variavel">
 			{% for instance in iniciativas|slice:"1" %}
 				{% for field, value in instance.fields.items %}
 				<option value="{{field}}">{{field}}</option>
@@ -140,7 +141,7 @@ Consultar Iniciativas
 
 	<div class="consultar-form-div">
 		<label for="inputNome">Pesquisa</label>
-		<input type="text" name="first_name" id="inputNome" class="consultar-form-input" placeholder="">
+		<input type="text" name="first_name" id="inputPesquisa" class="consultar-form-input" placeholder="">
 	</div>
 
 	<div class="consultar-form-div">
@@ -156,7 +157,7 @@ Consultar Iniciativas
 			{% for instance in iniciativas %}
 			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha">
 				{% for field, value in instance.fields.items %}
-				<td>{{ value }}</td>
+				<td class="{{field}}">{{ value }}</td>
 				{% endfor %}				
 			</tr>
 			{% endfor %}
@@ -165,12 +166,8 @@ Consultar Iniciativas
 
 	<ul id="dropdown" role="menu" hidden aria-labelledby="menuitems">
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Iniciativa</a></li>
-		<li><a href="#" id="removerLink">Remover Iniciativa</li>
+		<li><a href="#" id="removerLink">Remover Iniciativa</a></li>
 	</ul>
-
-	<div id="consultarButtonDiv" class="consultar-form-div">
-		<input id="consultarButton" type="submit" value="Consultar">
-	</div>
 
 </form>
 

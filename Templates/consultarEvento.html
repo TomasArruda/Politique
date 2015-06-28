@@ -26,7 +26,7 @@ Consultar Evento
 <!-- Modal editar Evento -->
 <div id="modalEditarEvento" hidden>
 
-	<h1>Editar Iniciativa</h1>
+	<h1>Editar Evento</h1>
 
 	<form action="#" method="POST" id="editarForm">
 		{% csrf_token %}
@@ -37,7 +37,7 @@ Consultar Evento
 
 		<div class="editar-form-div">
 			<label for="inputData">Data</label>
-			<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="">
+			<input type="date" name="data" id="inputData" class="editar-form-input" placeholder="" required>
 		</div>
 
 		<div class="editar-form-div">
@@ -129,7 +129,7 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos1 %}
-			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEvento' instance.pk %}', '{% url 'EditarEvento' instance.pk %}')" class="tabela-linha linha-interna">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverCapacitacaoInterna' instance.pk %}', '{% url 'EditarCapacitacaoInterna' instance.pk %}')" class="tabela-linha linha-interna">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
 				<td class="{{field}}">{{ value }}</td>
@@ -151,7 +151,7 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos2 %}
-			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-externa">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverCapacitacaoExterna' instance.pk %}', '{% url 'EditarCapacitacaoExterna' instance.pk %}')" class="tabela-linha linha-externa">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'tipoEvento' %}
 				<td class="{{field}}">{{ value }}</td>
@@ -173,7 +173,7 @@ Consultar Evento
 			</tr>
 
 			{% for instance in eventos3 %}
-			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverIniciativa' instance.pk %}', '{% url 'EditarIniciativa' instance.pk %}')" class="tabela-linha linha-institucional">
+			<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEventoInstitucional' instance.pk %}', '{% url 'EditarEventoInstitucional' instance.pk %}')" class="tabela-linha linha-institucional">
 				{% for field, value in instance.fields.items %}
 				{% if field != 'empresasParceiras' and field != 'tipoEvento' %}
 				<td class="{{field}}">{{ value }}</td>
@@ -188,10 +188,6 @@ Consultar Evento
 		<li><a href="#" data-toggle="modal" id="editarLink" onclick="showModal()">Editar Evento</a></li>
 		<li><a href="#" id="removerLink">Remover Evento</li>
 	</ul>
-
-	<div id="consultarButtonDiv" class="consultar-form-div">
-		<input id="consultarButton" type="submit" value="Consultar">
-	</div>
 
 </form>
 

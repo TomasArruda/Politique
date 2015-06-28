@@ -38,8 +38,7 @@ def EditarFinanciamentoView(request, id):
 		obj.save()
 
 	financiamentos = serializers.serialize( "python", Financiamento.objects.filter().order_by('nome') )
-	return render(request, 'consultarFianaciamento.html', {'financiamentos': financiamentos, 'form': form})
-
+	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos, 'form': form})
 
 @login_required(login_url='/Website')
 def ConsultarFinanciamentoView(request):
@@ -51,4 +50,6 @@ def ConsultarFinanciamentoView(request):
 def RemoverFinanciamentoView(request, id):
 	obj = Financiamento.objects.get(pk=id)
 	obj.delete()
-	return render(request, 'consultarFinanciamento.html')
+	form = FinanciamentoForm(request.POST or None)
+	financiamentos = serializers.serialize( "python", Financiamento.objects.filter().order_by('nome') )
+	return render(request, 'consultarFinanciamento.html', {'financiamentos': financiamentos, 'form': form})

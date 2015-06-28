@@ -2,6 +2,8 @@
 from membro import AtualizarMembroView
 from membro import cadastrarMembroView
 from membro import ConsultarMembroView
+from membro import RemoverMembroView
+from membro import EditarMembroView
 ###################### SETOR ############################
 from setor import SetorView
 from setor import RemoverSetorView
